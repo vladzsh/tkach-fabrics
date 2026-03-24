@@ -56,8 +56,7 @@
 }
 
 .card {
-  flex: 1 0 0;
-  min-width: 200px;
+  flex: 0 0 220px;
   scroll-snap-align: start;
 }
 
