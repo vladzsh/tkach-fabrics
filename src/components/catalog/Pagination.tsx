@@ -5,15 +5,21 @@ type PaginationProps = {
   currentPage: number;
   totalPages: number;
   basePath: string;
-  searchParams?: Record<string, string>;
+  searchParams?: URLSearchParams | Record<string, string>;
 };
 
 function buildHref(
   basePath: string,
   page: number,
-  searchParams?: Record<string, string>
+  searchParams?: URLSearchParams | Record<string, string>
 ): string {
-  const params = new URLSearchParams({ ...(searchParams ?? {}), page: String(page) });
+  let params: URLSearchParams;
+  if (searchParams instanceof URLSearchParams) {
+    params = new URLSearchParams(searchParams.toString());
+  } else {
+    params = new URLSearchParams({ ...(searchParams ?? {}) });
+  }
+  params.set("page", String(page));
   return `${basePath}?${params.toString()}`;
 }
 

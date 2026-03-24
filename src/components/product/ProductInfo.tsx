@@ -81,6 +81,17 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         onClose={() => setQuoteModalOpen(false)}
         productName={product.name}
       />
+
+      {/* Mobile sticky CTA */}
+      <div className={styles.stickyCta}>
+        <Button
+          variant="primary"
+          onClick={() => setQuoteModalOpen(true)}
+          className={styles.stickyBtn}
+        >
+          Request Quote
+        </Button>
+      </div>
     </div>
   );
 }

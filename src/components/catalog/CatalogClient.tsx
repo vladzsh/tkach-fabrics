@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { useState, useCallback, useMemo, useEffect, Suspense } from "react";
+import { useState, useCallback, useMemo, Suspense } from "react";
 import type { Product, ProductFilters, SortOption } from "@/data/types";
 import SortBar from "@/components/catalog/SortBar";
 import FilterSidebar from "@/components/catalog/FilterSidebar";
@@ -122,11 +122,10 @@ function applyFilters(products: Product[], filters: ProductFilters): Product[] {
 
 function CatalogClientInner({
   initialProducts,
-  categoryName,
   allColors,
   allCompositions,
   priceRange,
-}: CatalogClientProps) {
+}: Omit<CatalogClientProps, "categoryName">) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -135,10 +134,7 @@ function CatalogClientInner({
     parseFiltersFromParams(searchParams)
   );
   const [gridCols, setGridCols] = useState<2 | 3>(3);
-  const [currentPage, setCurrentPage] = useState<number>(() => {
-    const p = Number(searchParams.get("page"));
-    return p > 0 ? p : 1;
-  });
+  const currentPage = Number(searchParams.get("page")) || 1;
   const [filterSheetOpen, setFilterSheetOpen] = useState(false);
 
   const filteredProducts = useMemo(
@@ -165,7 +161,6 @@ function CatalogClientInner({
   const handleFiltersChange = useCallback(
     (newFilters: ProductFilters) => {
       setFilters(newFilters);
-      setCurrentPage(1);
       syncToUrl(newFilters, 1);
     },
     [syncToUrl]
@@ -175,35 +170,18 @@ function CatalogClientInner({
     (value: string) => {
       const newFilters = { ...filters, sortBy: value as SortOption };
       setFilters(newFilters);
-      setCurrentPage(1);
       syncToUrl(newFilters, 1);
     },
     [filters, syncToUrl]
   );
 
-  const handlePageChange = useCallback(
-    (page: number) => {
-      setCurrentPage(page);
-      syncToUrl(filters, page);
-    },
-    [filters, syncToUrl]
-  );
-
-  // Keep page in sync with URL if navigated externally
-  useEffect(() => {
-    const p = Number(searchParams.get("page"));
-    setCurrentPage(p > 0 ? p : 1);
-  }, [searchParams]);
-
-  const currentSearchParams: Record<string, string> = {};
-  searchParams.forEach((value, key) => {
-    if (key !== "page") currentSearchParams[key] = value;
-  });
+  const paginationSearchParams = new URLSearchParams(searchParams.toString());
+  paginationSearchParams.delete("page");
 
   return (
     <div className={styles.layout}>
       {/* Desktop filter sidebar */}
-      <div className="desktopOnly">
+      <div className={styles.desktopOnly}>
         <FilterSidebar
           filters={filters}
           onChange={handleFiltersChange}
@@ -253,7 +231,7 @@ function CatalogClientInner({
               currentPage={safePage}
               totalPages={totalPages}
               basePath={pathname}
-              searchParams={currentSearchParams}
+              searchParams={paginationSearchParams}
             />
           </>
         )}
@@ -263,9 +241,15 @@ function CatalogClientInner({
 }
 
 export function CatalogClient(props: CatalogClientProps) {
+  const { initialProducts, allColors, allCompositions, priceRange } = props;
   return (
     <Suspense fallback={<div className={styles.empty}>Loading...</div>}>
-      <CatalogClientInner {...props} />
+      <CatalogClientInner
+        initialProducts={initialProducts}
+        allColors={allColors}
+        allCompositions={allCompositions}
+        priceRange={priceRange}
+      />
     </Suspense>
   );
 }

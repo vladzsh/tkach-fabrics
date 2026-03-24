@@ -1,6 +1,11 @@
+import type { Metadata } from 'next';
 import { CheckCircle, Clock, Truck } from 'lucide-react';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import styles from './page.module.css';
+
+export const metadata: Metadata = {
+  title: 'About — Tkach Fabrics',
+};
 
 export default function AboutPage() {
   return (

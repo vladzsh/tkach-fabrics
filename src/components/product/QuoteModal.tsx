@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CheckCircle } from "lucide-react";
 import Modal from "@/components/ui/Modal";
 import Input from "@/components/ui/Input";
@@ -39,14 +39,12 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
 
-  // Reset form whenever modal closes
-  useEffect(() => {
-    if (!isOpen) {
-      setValues(emptyForm);
-      setErrors({});
-      setSubmitted(false);
-    }
-  }, [isOpen]);
+  function handleClose() {
+    setValues(emptyForm);
+    setErrors({});
+    setSubmitted(false);
+    onClose();
+  }
 
   function handleChange(field: keyof FormValues, value: string) {
     setValues((prev) => ({ ...prev, [field]: value }));
@@ -77,13 +75,13 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Request Quote">
+    <Modal isOpen={isOpen} onClose={handleClose} title="Request Quote">
       {submitted ? (
         <div className={styles.success}>
           <CheckCircle size={48} className={styles.successIcon} />
           <p className={styles.successTitle}>Your quote request has been submitted!</p>
           <p className={styles.successSubtitle}>We&apos;ll get back to you within 24 hours.</p>
-          <Button variant="primary" onClick={onClose} className={styles.closeBtn}>
+          <Button variant="primary" onClick={handleClose} className={styles.closeBtn}>
             Close
           </Button>
         </div>

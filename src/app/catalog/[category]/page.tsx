@@ -19,8 +19,6 @@ const VALID_CATEGORIES = [
   "blends",
 ] as const;
 
-type ValidCategory = (typeof VALID_CATEGORIES)[number];
-
 function getCategoryName(slug: string): string {
   const map: Record<string, string> = {
     cotton: "Cotton",

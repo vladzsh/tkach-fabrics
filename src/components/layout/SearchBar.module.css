@@ -18,7 +18,7 @@
 .input {
   width: 100%;
   padding: 9px 14px 9px 38px;
-  background: #ffffff;
+  /* background: #ffffff; */
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   font-size: 14px;

@@ -1,8 +1,13 @@
+import type { Metadata } from 'next';
 import { MapPin } from 'lucide-react';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import ContactForm from '@/components/contact/ContactForm';
 import ContactInfo from '@/components/contact/ContactInfo';
 import styles from './page.module.css';
+
+export const metadata: Metadata = {
+  title: 'Contact — Tkach Fabrics',
+};
 
 export default function ContactPage() {
   return (

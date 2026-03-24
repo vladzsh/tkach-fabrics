@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import styles from './BottomSheet.module.css';
 
@@ -17,17 +17,17 @@ export default function BottomSheet({
   title,
   children,
 }: BottomSheetProps) {
-  const [isVisible, setIsVisible] = useState(false);
+  const sheetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
       requestAnimationFrame(() => {
-        setIsVisible(true);
+        sheetRef.current?.classList.add(styles.open);
       });
     } else {
       document.body.style.overflow = '';
-      setIsVisible(false);
+      sheetRef.current?.classList.remove(styles.open);
     }
 
     return () => {
@@ -40,7 +40,7 @@ export default function BottomSheet({
   return (
     <>
       <div className={styles.overlay} onClick={onClose} />
-      <div className={`${styles.sheet}${isVisible ? ` ${styles.open}` : ''}`}>
+      <div ref={sheetRef} className={styles.sheet}>
         <div className={styles.header}>
           <span className={styles.title}>{title}</span>
           <button className={styles.closeBtn} onClick={onClose} aria-label="Close">

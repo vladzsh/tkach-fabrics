@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getProductBySlug, getCategories } from "@/data/products";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import Button from "@/components/ui/Button";
 import ImageGallery from "@/components/product/ImageGallery";
 import ProductInfo from "@/components/product/ProductInfo";
 import styles from "./page.module.css";
@@ -54,12 +53,6 @@ export default async function ProductPage({
         </div>
       </div>
 
-      {/* Mobile sticky CTA */}
-      <div className={styles.stickyCta}>
-        <Button variant="primary" className={styles.stickyBtn}>
-          Request Quote
-        </Button>
-      </div>
     </main>
   );
 }
