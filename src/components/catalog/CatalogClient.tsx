@@ -135,7 +135,7 @@ function CatalogClientInner({
   const [filters, setFilters] = useState<ProductFilters>(() =>
     parseFiltersFromParams(searchParams)
   );
-  const [gridCols, setGridCols] = useState<2 | 3>(3);
+  const [gridCols, setGridCols] = useState<4 | 5 | 6>(4);
   const currentPage = Number(searchParams.get("page")) || 1;
   const [filterSheetOpen, setFilterSheetOpen] = useState(false);
 
@@ -221,7 +221,7 @@ function CatalogClientInner({
           <>
             <div
               className={`${styles.grid} ${
-                gridCols === 3 ? styles.cols3 : styles.cols2
+                gridCols === 4 ? styles.cols4 : gridCols === 5 ? styles.cols5 : styles.cols6
               }`}
             >
               {pagedProducts.map((product) => (

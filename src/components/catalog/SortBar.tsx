@@ -1,13 +1,13 @@
 "use client";
 
 import {useTranslations} from 'next-intl';
-import { Grid3x3, Grid2x2 } from "lucide-react";
+import { Grid2x2, Grid3x3, LayoutGrid } from "lucide-react";
 import Dropdown from "@/components/ui/Dropdown";
 import styles from "./SortBar.module.css";
 
 type SortBarProps = {
-  gridCols: 2 | 3;
-  onGridChange: (cols: 2 | 3) => void;
+  gridCols: 4 | 5 | 6;
+  onGridChange: (cols: 4 | 5 | 6) => void;
   sortBy: string;
   onSortChange: (value: string) => void;
 };
@@ -31,20 +31,28 @@ export default function SortBar({
     <div className={styles.bar}>
       <div className={styles.gridToggle}>
         <button
-          className={`${styles.gridBtn} ${gridCols === 3 ? styles.active : ""}`}
-          onClick={() => onGridChange(3)}
-          aria-label="3 column grid"
-          title="3 columns"
+          className={`${styles.gridBtn} ${gridCols === 4 ? styles.active : ""}`}
+          onClick={() => onGridChange(4)}
+          aria-label="4 column grid"
+          title="4 columns"
+        >
+          <Grid2x2 size={14} />
+        </button>
+        <button
+          className={`${styles.gridBtn} ${gridCols === 5 ? styles.active : ""}`}
+          onClick={() => onGridChange(5)}
+          aria-label="5 column grid"
+          title="5 columns"
         >
           <Grid3x3 size={14} />
         </button>
         <button
-          className={`${styles.gridBtn} ${gridCols === 2 ? styles.active : ""}`}
-          onClick={() => onGridChange(2)}
-          aria-label="2 column grid"
-          title="2 columns"
+          className={`${styles.gridBtn} ${gridCols === 6 ? styles.active : ""}`}
+          onClick={() => onGridChange(6)}
+          aria-label="6 column grid"
+          title="6 columns"
         >
-          <Grid2x2 size={14} />
+          <LayoutGrid size={14} />
         </button>
       </div>
       <Dropdown
