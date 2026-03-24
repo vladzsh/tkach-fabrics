@@ -1,3 +1,11 @@
-export default function Home() {
-  return <main>Tkach Fabrics</main>;
+import { Hero } from "@/components/home/Hero";
+import { CategoryGrid } from "@/components/home/CategoryGrid";
+
+export default function HomePage() {
+  return (
+    <main>
+      <Hero />
+      <CategoryGrid />
+    </main>
+  );
 }
