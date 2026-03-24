@@ -1,19 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import {useTranslations} from 'next-intl';
 import {useRouter} from '@/i18n/navigation';
 import { Search } from "lucide-react";
 import styles from "./SearchBar.module.css";
 
-export default function SearchBar({ onSubmit }: { onSubmit?: () => void }) {
+function SearchBarInner({ onSubmit }: { onSubmit?: () => void }) {
   const t = useTranslations('Search');
   const router = useRouter();
   const searchParams = useSearchParams();
   const [value, setValue] = useState(searchParams.get("q") ?? "");
 
-  // Sync input with URL when q param changes (e.g. Clear button)
   useEffect(() => {
     setValue(searchParams.get("q") ?? "");
   }, [searchParams]);
@@ -41,5 +40,13 @@ export default function SearchBar({ onSubmit }: { onSubmit?: () => void }) {
         aria-label={t('placeholder')}
       />
     </form>
+  );
+}
+
+export default function SearchBar({ onSubmit }: { onSubmit?: () => void }) {
+  return (
+    <Suspense>
+      <SearchBarInner onSubmit={onSubmit} />
+    </Suspense>
   );
 }
