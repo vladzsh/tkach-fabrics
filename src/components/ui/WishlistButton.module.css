@@ -1,0 +1,22 @@
+.button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 150ms;
+}
+
+.wishlisted {
+  color: #e53e3e;
+}
+
+.notWishlisted {
+  color: var(--color-text-secondary);
+}
+
+.notWishlisted:hover {
+  color: var(--color-primary);
+}
