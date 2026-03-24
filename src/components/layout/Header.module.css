@@ -90,6 +90,24 @@
   display: none;
 }
 
+.logoFull {
+  display: inline;
+}
+
+.logoShort {
+  display: none;
+}
+
+@media (max-width: 419px) {
+  .logoFull {
+    display: none;
+  }
+
+  .logoShort {
+    display: inline;
+  }
+}
+
 .catalogHide {
   display: flex;
 }
@@ -103,11 +121,25 @@
 @media (max-width: 1023px) {
   .headerBar {
     padding: 12px 16px;
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .leftGroup {
+    gap: 8px;
+    min-width: 0;
   }
 
   .logo {
     font-size: 16px;
+  }
+
+  .logoIcon {
+    height: 22px;
+  }
+
+  .rightGroup {
+    gap: 12px;
+    flex-shrink: 0;
   }
 
   .desktopOnly {
