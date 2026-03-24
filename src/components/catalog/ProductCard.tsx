@@ -10,12 +10,16 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const bgColor = product.colors[0]?.hex ?? "#e8e8e8";
   const firstColorName = product.colors[0]?.name ?? "";
+  const imgSrc = product.images[0];
 
   return (
     <Link href={`/product/${product.slug}`} className={styles.card}>
-      <div className={styles.image} style={{ backgroundColor: bgColor }}>
+      <div className={styles.image}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {imgSrc && (
+          <img src={imgSrc} alt={product.name} className={styles.productImg} />
+        )}
         <div
           className={styles.wishlist}
           onClick={(e) => {

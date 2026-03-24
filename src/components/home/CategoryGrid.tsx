@@ -15,7 +15,12 @@ export function CategoryGrid() {
             href={`/catalog/${category.slug}`}
             className={styles.card}
           >
-            <div className={styles.icon} />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={category.thumbnail}
+              alt={category.name}
+              className={styles.thumbnail}
+            />
             <span className={styles.name}>{category.name}</span>
           </Link>
         ))}
