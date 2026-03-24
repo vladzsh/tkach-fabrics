@@ -5,7 +5,7 @@ import Link from "next/link";
 import { X } from "lucide-react";
 import styles from "./MobileMenu.module.css";
 
-const links = [
+const catalogLinks = [
   { label: "All Fabrics", href: "/catalog" },
   { label: "Cotton", href: "/catalog/cotton" },
   { label: "Linen", href: "/catalog/linen" },
@@ -14,8 +14,12 @@ const links = [
   { label: "Wool", href: "/catalog/wool" },
   { label: "Blends", href: "/catalog/blends" },
   { label: "New Arrivals", href: "/catalog/new-arrivals" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+];
+
+const pageLinks = [
+  { label: "About Us", href: "/about" },
+  { label: "Contacts", href: "/contact" },
+  { label: "Shipping", href: "#" },
 ];
 
 type MobileMenuProps = {
@@ -66,7 +70,24 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
         </div>
 
         <nav className={styles.nav}>
-          {links.map((link) => (
+          <div className={styles.sectionLabel}>Pages</div>
+          {pageLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={styles.link}
+              onClick={onClose}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <hr className={styles.divider} />
+
+        <nav className={styles.nav}>
+          <div className={styles.sectionLabel}>Catalog</div>
+          {catalogLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}

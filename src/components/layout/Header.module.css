@@ -8,10 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 32px;
+  padding: 16px 64px;
   background: var(--color-primary);
   border-bottom: 1px solid var(--color-footer-divider);
-  gap: 20px;
+  gap: 40px;
 }
 
 .logo {
@@ -33,6 +33,12 @@
 
 .accent {
   color: var(--color-accent);
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .centerGroup {
@@ -76,6 +82,7 @@
 .desktopOnly {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .mobileOnly {

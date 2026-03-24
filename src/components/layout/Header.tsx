@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { Heart, User, Menu, Search } from "lucide-react";
 import SearchBar from "./SearchBar";
-import CategoryNav from "./CategoryNav";
 import CatalogFlyout from "./CatalogFlyout";
 import MobileMenu from "./MobileMenu";
 import styles from "./Header.module.css";
@@ -14,10 +13,9 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      {/* Header bar */}
       <div className={styles.headerBar}>
-        {/* Mobile: hamburger + condensed logo + icons */}
-        <div className={styles.mobileOnly}>
+        {/* Hamburger + Logo (always visible) */}
+        <div className={styles.leftGroup}>
           <button
             className={styles.iconBtn}
             onClick={() => setMobileMenuOpen(true)}
@@ -25,16 +23,6 @@ export default function Header() {
           >
             <Menu size={22} />
           </button>
-        </div>
-
-        <div className={styles.mobileOnly}>
-          <Link href="/" className={styles.logoMobile}>
-            TKACH <span className={styles.accent}>F.</span>
-          </Link>
-        </div>
-
-        {/* Desktop: full logo */}
-        <div className={styles.desktopOnly}>
           <Link href="/" className={styles.logo}>
             TKACH <span className={styles.accent}>FABRICS</span>
           </Link>
@@ -67,10 +55,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Category nav (hidden on mobile via CSS) */}
-      <CategoryNav />
-
-      {/* Mobile menu drawer */}
+      {/* Menu drawer */}
       <MobileMenu
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
