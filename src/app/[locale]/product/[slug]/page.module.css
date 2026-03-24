@@ -2,13 +2,14 @@
   background-color: var(--color-bg);
   min-height: calc(100vh - 64px);
   padding-bottom: 40px;
+  padding: 0 32px 40px;
 }
 
 .layout {
   display: flex;
   flex-direction: row;
   gap: 32px;
-  padding: 20px 32px;
+  /* padding: 20px 32px; */
   background-color: var(--color-bg);
 }
 

@@ -28,7 +28,6 @@ export default async function AboutPage({
   return (
     <main className={styles.page}>
       <div className={styles.content}>
-        <Breadcrumbs items={[{ label: t('title') }]} />
 
         <h1
           style={{
