@@ -1,0 +1,136 @@
+.section {
+  padding: 40px 32px;
+  background: var(--color-bg);
+}
+
+.card {
+  background: var(--color-primary);
+  border-radius: var(--radius-xl);
+  padding: 64px 32px;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.headline {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 28px;
+}
+
+/* Modal content */
+.channels {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  transition: background 0.12s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.channel:hover {
+  background: var(--color-light-gray);
+}
+
+.channelIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.telegram {
+  background: #0088cc;
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.viber {
+  background: #7360f2;
+}
+
+.channelName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.channelValue {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: 1px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 8px 0;
+}
+
+.phonesSection {
+  padding: 4px 0;
+}
+
+.phonesLabel {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-secondary);
+  padding: 4px 12px 8px;
+}
+
+.phoneLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background 0.12s;
+}
+
+.phoneLink:hover {
+  background: var(--color-light-gray);
+}
+
+.phoneIcon {
+  color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 24px 16px;
+  }
+
+  .card {
+    padding: 48px 20px;
+  }
+
+  .headline {
+    font-size: 22px;
+  }
+}
