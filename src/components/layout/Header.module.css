@@ -21,6 +21,14 @@
   text-decoration: none;
   letter-spacing: -0.3px;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  height: 28px;
+  width: auto;
 }
 
 .logoMobile {

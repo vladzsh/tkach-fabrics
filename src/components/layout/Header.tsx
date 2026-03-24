@@ -27,6 +27,8 @@ export default function Header() {
             <Menu size={22} />
           </button>
           <Link href="/" className={styles.logo}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/logo.svg" alt="Tkach Fabrics" className={styles.logoIcon} />
             TKACH <span className={styles.accent}>FABRICS</span>
           </Link>
           <CatalogFlyout />
