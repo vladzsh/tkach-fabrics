@@ -5,6 +5,7 @@
   font-size: 14px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   transition: background 150ms;
   cursor: pointer;
