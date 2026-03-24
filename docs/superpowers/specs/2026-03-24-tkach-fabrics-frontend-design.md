@@ -43,8 +43,9 @@ tkach-fabrics/
 │   ├── layout.tsx              # Root layout: Header + Footer wrap all pages
 │   ├── page.tsx                # Homepage
 │   ├── catalog/
+│   │   ├── page.tsx            # All Fabrics (unfiltered catalog)
 │   │   └── [category]/
-│   │       └── page.tsx        # Catalog page filtered by category
+│   │       └── page.tsx        # Catalog filtered by category (incl. "new-arrivals")
 │   ├── product/
 │   │   └── [slug]/
 │   │       └── page.tsx        # Product detail page
@@ -53,7 +54,7 @@ tkach-fabrics/
 │   └── contact/
 │       └── page.tsx
 ├── components/
-│   ├── layout/                 # Header, Footer, CategoryNav, MobileMenu
+│   ├── layout/                 # Header, Footer, CategoryNav, MobileMenu, CatalogFlyout
 │   ├── home/                   # Hero, CategoryGrid
 │   ├── catalog/                # FilterSidebar, FilterBottomSheet, SortBar, ProductCard, Pagination
 │   ├── product/                # ImageGallery, ProductInfo, ColorSwatches, QuoteModal
@@ -111,6 +112,7 @@ export function getProducts(filters?: ProductFilters): Product[]
 export function getProductBySlug(slug: string): Product | null
 export function getCategories(): Category[]
 export function getProductsByCategory(category: string): Product[]
+export function getNewArrivals(): Product[]  // filters by isNew flag
 ```
 
 Reads from local JSON today. When Django is ready, replace function bodies with `fetch()` calls — no component changes needed.
@@ -151,7 +153,7 @@ Reads from local JSON today. When Django is ready, replace function bodies with 
 
 **Server Component.** No client-side interactivity.
 
-- **Hero section:** Full-width background image, overlay text ("WHOLESALE FABRICS" subtitle, "Premium Fabrics for Your Production" headline), two CTAs: "Browse Catalog" (green filled) and "Request Quote" (white outlined).
+- **Hero section:** Full-width background image, overlay text ("WHOLESALE FABRICS" subtitle, "Premium Fabrics for Your Production" headline), two CTAs: "Browse Catalog" (green filled, links to `/catalog`) and "Request Quote" (white outlined, links to `/contact`).
 - **Shop by Material:** 4-column grid (2 on mobile) of category cards. Each card: fabric texture thumbnail (circular), category name. Links to `/catalog/[category]`.
 
 ### 6.2 Catalog (`app/catalog/[category]/page.tsx`)
@@ -203,8 +205,8 @@ Reads from local JSON today. When Django is ready, replace function bodies with 
 
 ### 7.1 Header (Sticky)
 
-- **Desktop header bar:** Logo ("TKACH FABRICS" — "FABRICS" in green) | Green "Catalog" button | Search bar (white bg, search icon left, submit on Enter) | Wishlist heart icon | Sign In user icon.
-- **Category nav bar:** Dark background (`#2C2C2C`). Horizontal: All Fabrics, Cotton, Linen, Silk, Polyester, Wool, Blends, New Arrivals, About, Contact. Active item in green, white text.
+- **Desktop header bar:** Logo ("TKACH FABRICS" — "FABRICS" in green) | Green "Catalog" button (opens a dropdown flyout with category list + icons, Rozetka-style) | Search bar (white bg, search icon left, submit on Enter) | Wishlist heart icon | Sign In user icon.
+- **Category nav bar:** Dark background (`#2C2C2C`). Horizontal: All Fabrics (`/catalog`), Cotton, Linen, Silk, Polyester, Wool, Blends, New Arrivals (`/catalog/new-arrivals`, filters by `isNew` flag), About, Contact. Active item in green, white text.
 - **Mobile:** Hamburger | "TKACH F." | Search icon + Wishlist icon. Hamburger opens MobileMenu drawer with full nav. Only top bar sticks on scroll.
 - **Search:** UI-ready input with placeholder autocomplete styling. No backend search in this phase.
 
