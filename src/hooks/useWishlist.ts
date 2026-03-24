@@ -1,23 +1,29 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const STORAGE_KEY = "tkach-wishlist";
 
-function readStorage(): string[] {
-  if (typeof window === "undefined") return [];
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-  } catch {
-    return [];
-  }
-}
-
 export function useWishlist() {
-  const [items, setItems] = useState<string[]>(readStorage);
+  const [items, setItems] = useState<string[]>([]);
+  const hydrated = useRef(false);
 
+  // Read from localStorage after hydration (avoids SSR mismatch)
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    try {
+      const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      setItems(stored);
+    } catch {
+      // ignore
+    }
+    hydrated.current = true;
+  }, []);
+
+  // Persist to localStorage on changes (skip the initial hydration write)
+  useEffect(() => {
+    if (hydrated.current) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
   }, [items]);
 
   const toggle = useCallback((slug: string) => {

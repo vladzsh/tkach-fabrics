@@ -20,7 +20,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className={styles.image}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         {imgSrc && (
-          <img src={imgSrc} alt={product.name} className={styles.productImg} />
+          <img src={imgSrc} alt={product.name} className={styles.productImg} loading="lazy" />
         )}
         <div
           className={styles.wishlist}

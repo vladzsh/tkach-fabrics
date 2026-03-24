@@ -24,6 +24,7 @@ export function CategoryGrid() {
               src={category.thumbnail}
               alt={category.name}
               className={styles.thumbnail}
+              loading="lazy"
             />
             <span className={styles.name}>{category.name}</span>
           </Link>
