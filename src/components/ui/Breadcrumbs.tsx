@@ -14,8 +14,8 @@ type BreadcrumbsProps = {
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (
     <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
-      <Link href="/" className={styles.link} aria-label="Home">
-        <Home size={14} />
+      <Link href="/" className={styles.homeLink} aria-label="Home">
+        <Home size={15} strokeWidth={2} />
       </Link>
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
