@@ -12,6 +12,7 @@ import styles from "./Header.module.css";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const t = useTranslations('Header');
 
   return (
@@ -54,18 +55,29 @@ export default function Header() {
             </button>
           </div>
           <div className={styles.mobileOnly}>
-            <button className={styles.iconBtn} aria-label={t('search')}>
+            <button
+              className={styles.iconBtn}
+              aria-label={t('search')}
+              onClick={() => setSearchOpen((prev) => !prev)}
+            >
               <Search size={22} />
             </button>
           </div>
-          <div className={styles.mobileOnly}>
+          {/* <div className={styles.mobileOnly}>
             <button className={styles.iconBtn} aria-label={t('wishlist')}>
               <Heart size={22} />
             </button>
-          </div>
+          </div> */}
           <LanguageSwitcher />
         </div>
       </div>
+
+      {/* Mobile search bar */}
+      {searchOpen && (
+        <div className={styles.mobileSearch}>
+          <SearchBar />
+        </div>
+      )}
 
       {/* Menu drawer */}
       <MobileMenu

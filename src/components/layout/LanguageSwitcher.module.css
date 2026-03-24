@@ -23,19 +23,6 @@
   white-space: nowrap;
 }
 
-@media (max-width: 639px) {
-  .currentLabel {
-    font-size: 12px;
-    max-width: 60px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .trigger {
-    padding: 6px 6px;
-    gap: 4px;
-  }
-}
 
 .chevron {
   color: var(--color-text-secondary);

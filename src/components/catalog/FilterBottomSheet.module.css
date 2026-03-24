@@ -8,7 +8,7 @@
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  background: white;
+  background: var(--color-light-gray)
 }
 
 @media (max-width: 1279px) {
