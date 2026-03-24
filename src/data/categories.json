@@ -1,0 +1,8 @@
+[
+  { "slug": "cotton", "name": "Cotton", "productCount": 3, "thumbnail": "/images/categories/cotton.jpg" },
+  { "slug": "linen", "name": "Linen", "productCount": 3, "thumbnail": "/images/categories/linen.jpg" },
+  { "slug": "silk", "name": "Silk", "productCount": 4, "thumbnail": "/images/categories/silk.jpg" },
+  { "slug": "polyester", "name": "Polyester", "productCount": 3, "thumbnail": "/images/categories/polyester.jpg" },
+  { "slug": "wool", "name": "Wool", "productCount": 3, "thumbnail": "/images/categories/wool.jpg" },
+  { "slug": "blends", "name": "Blends", "productCount": 3, "thumbnail": "/images/categories/blends.jpg" }
+]

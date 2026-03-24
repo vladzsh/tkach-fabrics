@@ -1,0 +1,335 @@
+[
+  {
+    "slug": "silk-charmeuse",
+    "name": "Silk Charmeuse",
+    "category": "silk",
+    "composition": "100% Silk",
+    "colors": [
+      { "name": "Ivory", "hex": "#FFFFF0" },
+      { "name": "Champagne", "hex": "#F7E7CE" },
+      { "name": "Crimson", "hex": "#DC143C" }
+    ],
+    "pricePerRoll": 45,
+    "minOrder": 2,
+    "images": [
+      "/images/products/silk-charmeuse-1.jpg",
+      "/images/products/silk-charmeuse-2.jpg"
+    ],
+    "isNew": true
+  },
+  {
+    "slug": "silk-crepe-de-chine",
+    "name": "Silk Crepe de Chine",
+    "category": "silk",
+    "composition": "100% Silk",
+    "colors": [
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Navy", "hex": "#000080" },
+      { "name": "Black", "hex": "#000000" }
+    ],
+    "pricePerRoll": 55,
+    "minOrder": 1,
+    "images": [
+      "/images/products/silk-crepe-de-chine-1.jpg",
+      "/images/products/silk-crepe-de-chine-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "silk-organza",
+    "name": "Silk Organza",
+    "category": "silk",
+    "composition": "Silk Blend",
+    "colors": [
+      { "name": "Ivory", "hex": "#FFFFF0" },
+      { "name": "Peach", "hex": "#FFCBA4" }
+    ],
+    "pricePerRoll": 38,
+    "minOrder": 3,
+    "images": [
+      "/images/products/silk-organza-1.jpg",
+      "/images/products/silk-organza-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "silk-cotton-voile",
+    "name": "Silk Cotton Voile",
+    "category": "silk",
+    "composition": "Silk/Cotton",
+    "colors": [
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Champagne", "hex": "#F7E7CE" }
+    ],
+    "pricePerRoll": 32,
+    "minOrder": 1,
+    "images": [
+      "/images/products/silk-cotton-voile-1.jpg",
+      "/images/products/silk-cotton-voile-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "cotton-poplin",
+    "name": "Cotton Poplin",
+    "category": "cotton",
+    "composition": "100% Cotton",
+    "colors": [
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Navy", "hex": "#000080" },
+      { "name": "Black", "hex": "#000000" }
+    ],
+    "pricePerRoll": 12,
+    "minOrder": 5,
+    "images": [
+      "/images/products/cotton-poplin-1.jpg",
+      "/images/products/cotton-poplin-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "cotton-canvas",
+    "name": "Cotton Canvas",
+    "category": "cotton",
+    "composition": "100% Cotton",
+    "colors": [
+      { "name": "Ivory", "hex": "#FFFFF0" },
+      { "name": "Charcoal", "hex": "#36454F" }
+    ],
+    "pricePerRoll": 9,
+    "minOrder": 10,
+    "images": [
+      "/images/products/cotton-canvas-1.jpg",
+      "/images/products/cotton-canvas-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "cotton-sateen",
+    "name": "Cotton Sateen",
+    "category": "cotton",
+    "composition": "100% Cotton",
+    "colors": [
+      { "name": "Burgundy", "hex": "#800020" },
+      { "name": "Emerald", "hex": "#50C878" },
+      { "name": "Navy", "hex": "#000080" }
+    ],
+    "pricePerRoll": 15,
+    "minOrder": 3,
+    "images": [
+      "/images/products/cotton-sateen-1.jpg",
+      "/images/products/cotton-sateen-2.jpg"
+    ],
+    "isNew": true
+  },
+  {
+    "slug": "linen-natural",
+    "name": "Natural Linen",
+    "category": "linen",
+    "composition": "100% Linen",
+    "colors": [
+      { "name": "Ivory", "hex": "#FFFFF0" },
+      { "name": "Champagne", "hex": "#F7E7CE" }
+    ],
+    "pricePerRoll": 22,
+    "minOrder": 2,
+    "images": [
+      "/images/products/linen-natural-1.jpg",
+      "/images/products/linen-natural-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "linen-washed",
+    "name": "Washed Linen",
+    "category": "linen",
+    "composition": "100% Linen",
+    "colors": [
+      { "name": "Charcoal", "hex": "#36454F" },
+      { "name": "Navy", "hex": "#000080" },
+      { "name": "Burgundy", "hex": "#800020" }
+    ],
+    "pricePerRoll": 25,
+    "minOrder": 1,
+    "images": [
+      "/images/products/linen-washed-1.jpg",
+      "/images/products/linen-washed-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "linen-cotton-blend",
+    "name": "Linen Cotton Blend",
+    "category": "linen",
+    "composition": "Cotton/Linen",
+    "colors": [
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Peach", "hex": "#FFCBA4" }
+    ],
+    "pricePerRoll": 18,
+    "minOrder": 3,
+    "images": [
+      "/images/products/linen-cotton-blend-1.jpg",
+      "/images/products/linen-cotton-blend-2.jpg"
+    ],
+    "isNew": true
+  },
+  {
+    "slug": "polyester-chiffon",
+    "name": "Polyester Chiffon",
+    "category": "polyester",
+    "composition": "100% Polyester",
+    "colors": [
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Black", "hex": "#000000" },
+      { "name": "Crimson", "hex": "#DC143C" }
+    ],
+    "pricePerRoll": 11,
+    "minOrder": 5,
+    "images": [
+      "/images/products/polyester-chiffon-1.jpg",
+      "/images/products/polyester-chiffon-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "polyester-satin",
+    "name": "Polyester Satin",
+    "category": "polyester",
+    "composition": "100% Polyester",
+    "colors": [
+      { "name": "Champagne", "hex": "#F7E7CE" },
+      { "name": "Navy", "hex": "#000080" },
+      { "name": "Emerald", "hex": "#50C878" }
+    ],
+    "pricePerRoll": 13,
+    "minOrder": 5,
+    "images": [
+      "/images/products/polyester-satin-1.jpg",
+      "/images/products/polyester-satin-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "polyester-blend-stretch",
+    "name": "Polyester Blend Stretch",
+    "category": "polyester",
+    "composition": "Polyester Blend",
+    "colors": [
+      { "name": "Black", "hex": "#000000" },
+      { "name": "Charcoal", "hex": "#36454F" }
+    ],
+    "pricePerRoll": 16,
+    "minOrder": 3,
+    "images": [
+      "/images/products/polyester-blend-stretch-1.jpg",
+      "/images/products/polyester-blend-stretch-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "merino-wool",
+    "name": "Merino Wool",
+    "category": "wool",
+    "composition": "100% Wool",
+    "colors": [
+      { "name": "Charcoal", "hex": "#36454F" },
+      { "name": "Ivory", "hex": "#FFFFF0" },
+      { "name": "Navy", "hex": "#000080" }
+    ],
+    "pricePerRoll": 48,
+    "minOrder": 1,
+    "images": [
+      "/images/products/merino-wool-1.jpg",
+      "/images/products/merino-wool-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "wool-flannel",
+    "name": "Wool Flannel",
+    "category": "wool",
+    "composition": "100% Wool",
+    "colors": [
+      { "name": "Burgundy", "hex": "#800020" },
+      { "name": "Black", "hex": "#000000" }
+    ],
+    "pricePerRoll": 42,
+    "minOrder": 2,
+    "images": [
+      "/images/products/wool-flannel-1.jpg",
+      "/images/products/wool-flannel-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "wool-silk-crepe",
+    "name": "Wool Silk Crepe",
+    "category": "wool",
+    "composition": "Wool/Silk",
+    "colors": [
+      { "name": "Ivory", "hex": "#FFFFF0" },
+      { "name": "Champagne", "hex": "#F7E7CE" },
+      { "name": "Crimson", "hex": "#DC143C" }
+    ],
+    "pricePerRoll": 50,
+    "minOrder": 1,
+    "images": [
+      "/images/products/wool-silk-crepe-1.jpg",
+      "/images/products/wool-silk-crepe-2.jpg"
+    ],
+    "isNew": true
+  },
+  {
+    "slug": "cotton-linen-twill",
+    "name": "Cotton Linen Twill",
+    "category": "blends",
+    "composition": "Cotton/Linen",
+    "colors": [
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Navy", "hex": "#000080" }
+    ],
+    "pricePerRoll": 20,
+    "minOrder": 2,
+    "images": [
+      "/images/products/cotton-linen-twill-1.jpg",
+      "/images/products/cotton-linen-twill-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "silk-blend-jacquard",
+    "name": "Silk Blend Jacquard",
+    "category": "blends",
+    "composition": "Silk Blend",
+    "colors": [
+      { "name": "Emerald", "hex": "#50C878" },
+      { "name": "Burgundy", "hex": "#800020" }
+    ],
+    "pricePerRoll": 35,
+    "minOrder": 2,
+    "images": [
+      "/images/products/silk-blend-jacquard-1.jpg",
+      "/images/products/silk-blend-jacquard-2.jpg"
+    ],
+    "isNew": false
+  },
+  {
+    "slug": "polyester-blend-knit",
+    "name": "Polyester Blend Knit",
+    "category": "blends",
+    "composition": "Polyester Blend",
+    "colors": [
+      { "name": "Black", "hex": "#000000" },
+      { "name": "Peach", "hex": "#FFCBA4" },
+      { "name": "Charcoal", "hex": "#36454F" }
+    ],
+    "pricePerRoll": 14,
+    "minOrder": 5,
+    "images": [
+      "/images/products/polyester-blend-knit-1.jpg",
+      "/images/products/polyester-blend-knit-2.jpg"
+    ],
+    "isNew": false
+  }
+]
