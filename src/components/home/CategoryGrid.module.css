@@ -10,8 +10,9 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -27,6 +28,8 @@
   text-decoration: none;
   color: inherit;
   transition: box-shadow 150ms;
+  width: calc(25% - 12px);
+  min-width: 140px;
 }
 
 .card:hover {
@@ -51,7 +54,7 @@
     padding: 24px 16px;
   }
 
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+  .card {
+    width: calc(50% - 8px);
   }
 }
