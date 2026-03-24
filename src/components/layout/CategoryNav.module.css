@@ -1,0 +1,33 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 12px 32px;
+  background: var(--color-primary);
+  overflow-x: auto;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+.active {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 767px) {
+  .nav {
+    display: none;
+  }
+}

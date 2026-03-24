@@ -1,0 +1,174 @@
+.footer {
+  background: var(--color-primary);
+  padding: 40px 32px 24px;
+}
+
+/* ===== Desktop Grid ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Brand column */
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.logoAccent {
+  color: var(--color-accent);
+}
+
+.tagline {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.socialRow {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.socialIcon {
+  width: 32px;
+  height: 32px;
+  background: #404040;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.socialIcon:hover {
+  background: #505050;
+}
+
+/* Column title */
+.columnTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+/* Links */
+.link {
+  font-size: 13px;
+  color: #999;
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #ccc;
+}
+
+/* Contact items */
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.contactItem svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contactValue {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.4;
+}
+
+/* Bottom bar */
+.bottomBar {
+  border-top: 1px solid var(--color-footer-divider);
+  margin-top: 32px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #666;
+}
+
+.bottomLinks {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  font-size: 12px;
+  color: #666;
+}
+
+.bottomLinks a {
+  color: #666;
+  text-decoration: none;
+}
+
+.bottomLinks a:hover {
+  color: #999;
+}
+
+/* Mobile layout */
+.mobile {
+  display: none;
+}
+
+.accordions {
+  margin-top: 24px;
+}
+
+.accordionLinks {
+  padding-bottom: 8px;
+}
+
+/* ===== Mobile overrides ===== */
+@media (max-width: 767px) {
+  .footer {
+    padding: 24px 16px;
+  }
+
+  .grid {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
