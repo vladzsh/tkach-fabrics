@@ -1,0 +1,83 @@
+.card {
+  background: var(--color-light-gray);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.rowLabel {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
+}
+
+.rowValue {
+  font-size: 14px;
+  color: var(--color-primary);
+}
+
+.emailLink {
+  font-size: 14px;
+  color: var(--color-accent);
+}
+
+.emailLink:hover {
+  text-decoration: underline;
+}
+
+.messengersTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.messengerRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.messengerIcon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.messengerName {
+  font-size: 14px;
+  color: var(--color-primary);
+}
+
+.socialRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.socialBtn {
+  width: 36px;
+  height: 36px;
+  background: var(--color-light-gray);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.socialBtn:hover {
+  background: var(--color-mid-gray);
+}

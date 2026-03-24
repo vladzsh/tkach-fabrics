@@ -1,0 +1,45 @@
+.page {
+  padding: 32px 24px;
+  background: var(--color-bg);
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.columns {
+  display: flex;
+  gap: 32px;
+}
+
+.formColumn {
+  flex: 1;
+}
+
+.infoColumn {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.map {
+  background: #e8e8e8;
+  border-radius: var(--radius-xl);
+  height: 280px;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .columns {
+    flex-direction: column;
+  }
+
+  .infoColumn {
+    width: 100%;
+  }
+}
