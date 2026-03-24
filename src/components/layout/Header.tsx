@@ -75,7 +75,7 @@ export default function Header() {
       {/* Mobile search bar */}
       {searchOpen && (
         <div className={styles.mobileSearch}>
-          <SearchBar />
+          <SearchBar onSubmit={() => setSearchOpen(false)} />
         </div>
       )}
 

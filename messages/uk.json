@@ -138,11 +138,13 @@
     "filterMinOrder": "МІН. ЗАМОВЛЕННЯ",
     "filters": "Фільтри",
     "applyFilters": "Застосувати фільтри",
+    "clear": "Очистити",
     "minRoll": "Мін: {count} рулон",
     "minRolls": "Мін: {count} рулонів"
   },
   "Search": {
-    "placeholder": "Пошук за тканиною, складом, кольором..."
+    "placeholder": "Пошук за тканиною, складом, кольором...",
+    "resultsFor": "Пошук: {query}"
   },
   "Metadata": {
     "homeTitle": "Tkach Fabrics — Оптові тканини в рулонах",

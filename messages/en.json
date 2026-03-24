@@ -138,11 +138,13 @@
     "filterMinOrder": "MIN ORDER",
     "filters": "Filters",
     "applyFilters": "Apply Filters",
+    "clear": "Clear",
     "minRoll": "Min: {count} roll",
     "minRolls": "Min: {count} rolls"
   },
   "Search": {
-    "placeholder": "Search by fabric, composition, color..."
+    "placeholder": "Search by fabric, composition, color...",
+    "resultsFor": "Search: {query}"
   },
   "Metadata": {
     "homeTitle": "Tkach Fabrics \u2014 Wholesale Fabrics by the Roll",

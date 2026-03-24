@@ -168,6 +168,22 @@ function CatalogClientInner({
     [syncToUrl]
   );
 
+  const hasActiveFilters = !!(
+    filters.colors?.length ||
+    filters.compositions?.length ||
+    filters.minOrders?.length ||
+    filters.priceMin !== undefined ||
+    filters.priceMax !== undefined ||
+    searchParams.get("q")
+  );
+
+  const handleClear = useCallback(() => {
+    const emptyFilters: ProductFilters = {};
+    setFilters(emptyFilters);
+    // Navigate to clean catalog URL (removes q and all filter params)
+    router.replace(pathname);
+  }, [router, pathname]);
+
   const handleSortChange = useCallback(
     (value: string) => {
       const newFilters = { ...filters, sortBy: value as SortOption };
@@ -213,7 +229,14 @@ function CatalogClientInner({
             sortBy={filters.sortBy ?? "newest"}
             onSortChange={handleSortChange}
           />
+
         </div>
+
+        {hasActiveFilters && (
+          <button className={styles.clearBtn} onClick={handleClear}>
+            {t('clear')}
+          </button>
+        )}
 
         {filteredProducts.length === 0 ? (
           <p className={styles.empty}>{t('noProducts')}</p>

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import {setRequestLocale, getTranslations} from 'next-intl/server';
 import {
   getProducts,
+  searchProducts,
   getAllColors,
   getAllCompositions,
   getPriceRange,
@@ -21,22 +22,28 @@ export async function generateMetadata({
 
 export default async function CatalogPage({
   params,
+  searchParams,
 }: {
   params: Promise<{locale: string}>;
+  searchParams: Promise<{q?: string}>;
 }) {
   const {locale} = await params;
+  const {q} = await searchParams;
   setRequestLocale(locale);
   const t = await getTranslations({locale, namespace: 'Categories'});
   const tCatalog = await getTranslations({locale, namespace: 'Catalog'});
-  const products = getProducts();
+  const tSearch = await getTranslations({locale, namespace: 'Search'});
+
+  const products = q ? searchProducts(q) : getProducts();
+  const title = q ? tSearch('resultsFor', {query: q}) : t('allFabrics');
 
   return (
     <main style={{ padding: "0 32px 40px", background: "var(--color-bg)" }}>
-      <Breadcrumbs items={[{ label: t('allFabrics') }]} />
+      <Breadcrumbs items={[{ label: title }]} />
       <h1
         style={{ fontSize: 20, fontWeight: 700, color: "var(--color-primary)" }}
       >
-        {t('allFabrics')}
+        {title}
       </h1>
       <p
         style={{
@@ -50,7 +57,7 @@ export default async function CatalogPage({
       </p>
       <CatalogClient
         initialProducts={products}
-        categoryName={t('allFabrics')}
+        categoryName={title}
         allColors={getAllColors()}
         allCompositions={getAllCompositions()}
         priceRange={getPriceRange()}

@@ -88,6 +88,18 @@ export function getPriceRange(): { min: number; max: number } {
   return { min: Math.min(...prices), max: Math.max(...prices) };
 }
 
+export function searchProducts(query: string): Product[] {
+  const q = query.toLowerCase().trim();
+  if (!q) return products;
+  return products.filter(
+    (p) =>
+      p.name.toLowerCase().includes(q) ||
+      p.composition.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      p.colors.some((c) => c.name.toLowerCase().includes(q))
+  );
+}
+
 export function getSimilarProducts(slug: string, limit = 6): Product[] {
   const product = products.find((p) => p.slug === slug);
   if (!product) return [];

@@ -138,11 +138,13 @@
     "filterMinOrder": "M\u0130N S\u0130PAR\u0130\u015e",
     "filters": "Filtreler",
     "applyFilters": "Filtreleri Uygula",
+    "clear": "Temizle",
     "minRoll": "Min: {count} rulo",
     "minRolls": "Min: {count} rulo"
   },
   "Search": {
-    "placeholder": "Kuma\u015f, bile\u015fim, renk ile ara..."
+    "placeholder": "Kuma\u015f, bile\u015fim, renk ile ara...",
+    "resultsFor": "Arama: {query}"
   },
   "Metadata": {
     "homeTitle": "Tkach Fabrics \u2014 Rulo ile Toptan Kuma\u015flar",
