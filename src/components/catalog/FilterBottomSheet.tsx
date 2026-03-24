@@ -1,0 +1,158 @@
+"use client";
+
+import { Check, SlidersHorizontal } from "lucide-react";
+import Accordion from "@/components/ui/Accordion";
+import RangeSlider from "@/components/ui/RangeSlider";
+import BottomSheet from "@/components/ui/BottomSheet";
+import Button from "@/components/ui/Button";
+import { ProductFilters } from "@/data/types";
+import styles from "./FilterBottomSheet.module.css";
+
+interface FilterBottomSheetProps {
+  filters: ProductFilters;
+  onChange: (filters: ProductFilters) => void;
+  allColors: { name: string; hex: string }[];
+  allCompositions: string[];
+  priceRange: { min: number; max: number };
+  isOpen: boolean;
+  onClose: () => void;
+  onOpen: () => void;
+}
+
+const MIN_ORDER_OPTIONS = [
+  { label: "1 roll", value: 1 },
+  { label: "5+ rolls", value: 5 },
+  { label: "10+ rolls", value: 10 },
+];
+
+export default function FilterBottomSheet({
+  filters,
+  onChange,
+  allColors,
+  allCompositions,
+  priceRange,
+  isOpen,
+  onClose,
+  onOpen,
+}: FilterBottomSheetProps) {
+  function toggleColor(colorName: string) {
+    const current = filters.colors ?? [];
+    const next = current.includes(colorName)
+      ? current.filter((c) => c !== colorName)
+      : [...current, colorName];
+    onChange({ ...filters, colors: next });
+  }
+
+  function toggleComposition(comp: string) {
+    const current = filters.compositions ?? [];
+    const next = current.includes(comp)
+      ? current.filter((c) => c !== comp)
+      : [...current, comp];
+    onChange({ ...filters, compositions: next });
+  }
+
+  function handlePriceChange(low: number, high: number) {
+    onChange({ ...filters, priceMin: low, priceMax: high });
+  }
+
+  function toggleMinOrder(value: number) {
+    const current = filters.minOrders ?? [];
+    const next = current.includes(value)
+      ? current.filter((v) => v !== value)
+      : [...current, value];
+    onChange({ ...filters, minOrders: next });
+  }
+
+  return (
+    <>
+      <button className={styles.filterButton} onClick={onOpen} aria-label="Open filters">
+        <SlidersHorizontal size={16} />
+        <span>Filters</span>
+      </button>
+
+      <BottomSheet isOpen={isOpen} onClose={onClose} title="Filters">
+        <Accordion title="COLOR" defaultOpen>
+          <div className={styles.swatches}>
+            {allColors.map((color) => {
+              const isSelected = (filters.colors ?? []).includes(color.name);
+              return (
+                <button
+                  key={color.name}
+                  className={`${styles.swatch}${isSelected ? ` ${styles.selected}` : ""}`}
+                  style={{ backgroundColor: color.hex }}
+                  onClick={() => toggleColor(color.name)}
+                  aria-label={color.name}
+                  title={color.name}
+                />
+              );
+            })}
+          </div>
+        </Accordion>
+
+        <Accordion title="COMPOSITION" defaultOpen>
+          <div>
+            {allCompositions.map((comp) => {
+              const isChecked = (filters.compositions ?? []).includes(comp);
+              return (
+                <label key={comp} className={styles.checkboxRow}>
+                  <span
+                    className={`${styles.checkbox}${isChecked ? ` ${styles.checked}` : ""}`}
+                  >
+                    {isChecked && <Check size={12} color="#fff" strokeWidth={3} />}
+                  </span>
+                  <span>{comp}</span>
+                  <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={() => toggleComposition(comp)}
+                    style={{ display: "none" }}
+                  />
+                </label>
+              );
+            })}
+          </div>
+        </Accordion>
+
+        <Accordion title="PRICE PER ROLL" defaultOpen>
+          <RangeSlider
+            min={priceRange.min}
+            max={priceRange.max}
+            valueLow={filters.priceMin ?? priceRange.min}
+            valueHigh={filters.priceMax ?? priceRange.max}
+            onChange={handlePriceChange}
+          />
+        </Accordion>
+
+        <Accordion title="MIN ORDER" defaultOpen>
+          <div>
+            {MIN_ORDER_OPTIONS.map((opt) => {
+              const isChecked = (filters.minOrders ?? []).includes(opt.value);
+              return (
+                <label key={opt.value} className={styles.checkboxRow}>
+                  <span
+                    className={`${styles.checkbox}${isChecked ? ` ${styles.checked}` : ""}`}
+                  >
+                    {isChecked && <Check size={12} color="#fff" strokeWidth={3} />}
+                  </span>
+                  <span>{opt.label}</span>
+                  <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={() => toggleMinOrder(opt.value)}
+                    style={{ display: "none" }}
+                  />
+                </label>
+              );
+            })}
+          </div>
+        </Accordion>
+
+        <div className={styles.applyButton}>
+          <Button variant="primary" onClick={onClose} style={{ width: "100%", justifyContent: "center" }}>
+            Apply Filters
+          </Button>
+        </div>
+      </BottomSheet>
+    </>
+  );
+}
