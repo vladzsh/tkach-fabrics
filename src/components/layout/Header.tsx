@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerBar}>
-        {/* Hamburger + Logo (always visible) */}
+        {/* Hamburger + Logo + Catalog (always visible) */}
         <div className={styles.leftGroup}>
           <button
             className={styles.iconBtn}
@@ -27,34 +27,37 @@ export default function Header() {
           <Link href="/" className={styles.logo}>
             TKACH <span className={styles.accent}>FABRICS</span>
           </Link>
+          <CatalogFlyout />
         </div>
 
-        {/* Desktop: CatalogFlyout + SearchBar */}
+        {/* Desktop: SearchBar */}
         <div className={`${styles.desktopOnly} ${styles.centerGroup}`}>
-          <CatalogFlyout />
           <SearchBar />
         </div>
 
-        {/* Desktop: action icons + language */}
-        <div className={`${styles.desktopOnly} ${styles.actions}`}>
+        {/* Right actions (always visible) */}
+        <div className={styles.rightGroup}>
+          <div className={styles.desktopOnly}>
+            <button className={styles.iconBtn} aria-label="Wishlist">
+              <Heart size={22} />
+            </button>
+          </div>
+          <div className={styles.desktopOnly}>
+            <button className={styles.iconBtn} aria-label="Sign in">
+              <User size={22} />
+            </button>
+          </div>
+          <div className={styles.mobileOnly}>
+            <button className={styles.iconBtn} aria-label="Search">
+              <Search size={22} />
+            </button>
+          </div>
+          <div className={styles.mobileOnly}>
+            <button className={styles.iconBtn} aria-label="Wishlist">
+              <Heart size={22} />
+            </button>
+          </div>
           <LanguageSwitcher />
-          <button className={styles.iconBtn} aria-label="Wishlist">
-            <Heart size={22} />
-          </button>
-          <button className={styles.iconBtn} aria-label="Sign in">
-            <User size={22} />
-          </button>
-        </div>
-
-        {/* Mobile: language + search + wishlist icons */}
-        <div className={`${styles.mobileOnly} ${styles.mobileActions}`}>
-          <LanguageSwitcher />
-          <button className={styles.iconBtn} aria-label="Search">
-            <Search size={22} />
-          </button>
-          <button className={styles.iconBtn} aria-label="Wishlist">
-            <Heart size={22} />
-          </button>
         </div>
       </div>
 
