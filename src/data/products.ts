@@ -87,3 +87,11 @@ export function getPriceRange(): { min: number; max: number } {
   const prices = products.map((p) => p.pricePerRoll);
   return { min: Math.min(...prices), max: Math.max(...prices) };
 }
+
+export function getSimilarProducts(slug: string, limit = 6): Product[] {
+  const product = products.find((p) => p.slug === slug);
+  if (!product) return [];
+  return products
+    .filter((p) => p.slug !== slug && p.category === product.category)
+    .slice(0, limit);
+}

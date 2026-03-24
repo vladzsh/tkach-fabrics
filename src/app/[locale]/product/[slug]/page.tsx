@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import {setRequestLocale} from 'next-intl/server';
-import { getProductBySlug, getCategories } from "@/data/products";
+import { getProductBySlug, getCategories, getSimilarProducts } from "@/data/products";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import ImageGallery from "@/components/product/ImageGallery";
 import ProductInfo from "@/components/product/ProductInfo";
+import SimilarProducts from "@/components/product/SimilarProducts";
 import styles from "./page.module.css";
 
 export async function generateMetadata({
@@ -55,6 +56,7 @@ export default async function ProductPage({
         </div>
       </div>
 
+      <SimilarProducts products={getSimilarProducts(slug)} />
     </main>
   );
 }

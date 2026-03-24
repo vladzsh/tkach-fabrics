@@ -65,7 +65,8 @@
     "requestQuote": "Fiyat Teklifi \u0130ste",
     "infoNote": "Fiyat teklifi isteyin, 24 saat i\u00e7inde fiyat, stok durumu ve kargo detaylar\u0131 ile size d\u00f6nelim.",
     "roll": "rulo",
-    "rolls": "rulo"
+    "rolls": "rulo",
+    "similarProducts": "Benzer Ürünler"
   },
   "QuoteModal": {
     "title": "Fiyat Teklifi \u0130ste",

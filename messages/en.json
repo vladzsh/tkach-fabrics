@@ -65,7 +65,8 @@
     "requestQuote": "Request Quote",
     "infoNote": "Submit a quote request and we'll get back to you within 24 hours with pricing, availability, and shipping details.",
     "roll": "roll",
-    "rolls": "rolls"
+    "rolls": "rolls",
+    "similarProducts": "Similar Products"
   },
   "QuoteModal": {
     "title": "Request Quote",
