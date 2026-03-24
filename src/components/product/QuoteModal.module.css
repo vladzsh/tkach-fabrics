@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 0 4px;
+}
+
+.readOnly {
+  opacity: 0.7;
+}
+
+.submitBtn {
+  margin-top: 4px;
+  width: 100%;
+}
+
+/* ===== Success state ===== */
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 32px 20px 20px;
+}
+
+.successIcon {
+  color: #00A86B;
+}
+
+.successTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.successSubtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.closeBtn {
+  margin-top: 8px;
+  min-width: 120px;
+}
