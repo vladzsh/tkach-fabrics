@@ -56,14 +56,14 @@
 }
 
 .card {
-  flex-shrink: 0;
-  width: 240px;
+  flex: 1 0 0;
+  min-width: 200px;
   scroll-snap-align: start;
 }
 
 @media (max-width: 767px) {
   .card {
-    width: 200px;
+    flex: 0 0 200px;
   }
 
   .section {
