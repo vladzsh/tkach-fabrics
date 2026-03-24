@@ -32,6 +32,7 @@
 html {
   font-family: var(--font-family);
   color: var(--color-primary);
+  overflow-x: hidden;
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

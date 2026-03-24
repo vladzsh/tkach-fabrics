@@ -31,7 +31,9 @@ export default function Header() {
             <img src="/images/logo.svg" alt="Tkach Fabrics" className={styles.logoIcon} />
             TKACH <span className={styles.accent}>FABRICS</span>
           </Link>
-          <CatalogFlyout />
+          <div className={styles.catalogHide}>
+            <CatalogFlyout />
+          </div>
         </div>
 
         {/* Desktop: SearchBar */}

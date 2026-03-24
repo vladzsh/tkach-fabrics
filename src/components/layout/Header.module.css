@@ -90,6 +90,16 @@
   display: none;
 }
 
+.catalogHide {
+  display: flex;
+}
+
+@media (max-width: 639px) {
+  .catalogHide {
+    display: none;
+  }
+}
+
 @media (max-width: 1023px) {
   .headerBar {
     padding: 12px 16px;

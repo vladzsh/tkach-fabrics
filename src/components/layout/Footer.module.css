@@ -148,6 +148,14 @@
   margin-top: 24px;
 }
 
+.accordions button {
+  color: #ffffff;
+}
+
+.accordions > div {
+  border-color: var(--color-footer-divider);
+}
+
 .accordionLinks {
   padding-bottom: 8px;
 }
