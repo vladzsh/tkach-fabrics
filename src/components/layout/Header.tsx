@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Heart, User, Menu, Search } from "lucide-react";
 import SearchBar from "./SearchBar";
 import CatalogFlyout from "./CatalogFlyout";
+import LanguageSwitcher from "./LanguageSwitcher";
 import MobileMenu from "./MobileMenu";
 import styles from "./Header.module.css";
 
@@ -34,8 +35,9 @@ export default function Header() {
           <SearchBar />
         </div>
 
-        {/* Desktop: action icons */}
+        {/* Desktop: action icons + language */}
         <div className={`${styles.desktopOnly} ${styles.actions}`}>
+          <LanguageSwitcher />
           <button className={styles.iconBtn} aria-label="Wishlist">
             <Heart size={22} />
           </button>
@@ -44,8 +46,9 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile: search + wishlist icons */}
+        {/* Mobile: language + search + wishlist icons */}
         <div className={`${styles.mobileOnly} ${styles.mobileActions}`}>
+          <LanguageSwitcher />
           <button className={styles.iconBtn} aria-label="Search">
             <Search size={22} />
           </button>

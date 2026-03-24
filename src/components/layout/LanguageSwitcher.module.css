@@ -1,0 +1,88 @@
+.wrapper {
+  position: relative;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.trigger:hover {
+  background: var(--color-footer-divider);
+}
+
+.flag {
+  width: 20px;
+  height: 14px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.code {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.chevron {
+  color: var(--color-text-secondary);
+  transition: transform 0.2s;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  min-width: 190px;
+  padding: 4px 0;
+  z-index: 100;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.option:hover {
+  background: var(--color-light-gray);
+}
+
+.optionActive {
+  background: var(--color-light-gray);
+}
+
+.option .code {
+  font-size: 11px;
+  color: var(--color-primary);
+}
+
+.label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.check {
+  margin-left: auto;
+  color: var(--color-accent);
+}
