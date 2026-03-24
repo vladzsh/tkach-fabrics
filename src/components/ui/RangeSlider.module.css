@@ -1,0 +1,78 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.input {
+  flex: 1;
+  background: var(--color-bg);
+  border: 1px solid var(--color-mid-gray);
+  border-radius: var(--radius-sm);
+  padding: 5px 8px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.separator {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.trackContainer {
+  position: relative;
+  height: 4px;
+  margin-top: 4px;
+}
+
+.track {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #e8e8e8;
+  border-radius: 2px;
+}
+
+.fill {
+  position: absolute;
+  height: 4px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.rangeInput {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.rangeInput::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: grab;
+}

@@ -1,0 +1,35 @@
+.button {
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 150ms;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.outline {
+  border: 1.5px solid currentColor;
+  background: transparent;
+}
+
+.ghost {
+  background: none;
+  border: none;
+}
+
+.ghost:hover {
+  background: var(--color-light-gray);
+}

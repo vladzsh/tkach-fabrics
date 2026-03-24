@@ -1,0 +1,24 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  padding: 16px 0;
+}
+
+.separator {
+  color: var(--color-mid-gray);
+}
+
+.link {
+  color: var(--color-accent);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.current {
+  color: var(--color-text-secondary);
+}

@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.input {
+  background: var(--color-light-gray);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 13px;
+  outline: none;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+.input.textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.input.errorInput {
+  border-color: #c00;
+}
+
+.error {
+  font-size: 12px;
+  color: #c00;
+}
