@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import {useTranslations} from 'next-intl';
 import { Info } from "lucide-react";
 import { Product } from "@/data/types";
 import Button from "@/components/ui/Button";
@@ -18,6 +19,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
     product.colors.length > 0 ? product.colors[0].name : null
   );
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const t = useTranslations('ProductInfo');
 
   return (
     <div className={styles.info}>
@@ -27,17 +29,17 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       {/* Price */}
       <div className={styles.priceRow}>
         <span className={styles.price}>${product.pricePerRoll}</span>
-        <span className={styles.priceUnit}>/ roll</span>
+        <span className={styles.priceUnit}>{t('perRoll')}</span>
       </div>
 
       {/* Specs grid */}
       <div className={styles.specs}>
         <div className={styles.specRow}>
-          <span className={styles.specLabel}>Composition</span>
+          <span className={styles.specLabel}>{t('composition')}</span>
           <span className={styles.specValue}>{product.composition}</span>
         </div>
         <div className={styles.specRow}>
-          <span className={styles.specLabel}>Available colors</span>
+          <span className={styles.specLabel}>{t('availableColors')}</span>
           <span className={styles.specValue}>
             <ColorSwatches
               colors={product.colors}
@@ -47,9 +49,9 @@ export default function ProductInfo({ product }: ProductInfoProps) {
           </span>
         </div>
         <div className={styles.specRow}>
-          <span className={styles.specLabel}>Min order</span>
+          <span className={styles.specLabel}>{t('minOrder')}</span>
           <span className={styles.specValue}>
-            {product.minOrder} roll{product.minOrder !== 1 ? "s" : ""}
+            {product.minOrder} {product.minOrder !== 1 ? t('rolls') : t('roll')}
           </span>
         </div>
       </div>
@@ -61,7 +63,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
           onClick={() => setQuoteModalOpen(true)}
           className={styles.quoteBtn}
         >
-          Request Quote
+          {t('requestQuote')}
         </Button>
         <WishlistButton slug={product.slug} />
       </div>
@@ -70,8 +72,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       <div className={styles.infoNote}>
         <Info size={16} className={styles.infoIcon} />
         <p className={styles.infoText}>
-          Submit a quote request and we&apos;ll get back to you within 24 hours with pricing,
-          availability, and shipping details.
+          {t('infoNote')}
         </p>
       </div>
 
@@ -89,7 +90,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
           onClick={() => setQuoteModalOpen(true)}
           className={styles.stickyBtn}
         >
-          Request Quote
+          {t('requestQuote')}
         </Button>
       </div>
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import {useTranslations} from 'next-intl';
 import { MessageCircle, Phone } from "lucide-react";
 import { contacts } from "@/data/config";
 import Button from "@/components/ui/Button";
@@ -9,20 +10,21 @@ import styles from "./ContactCta.module.css";
 
 export function ContactCta() {
   const [open, setOpen] = useState(false);
+  const t = useTranslations('ContactCta');
 
   return (
     <section className={styles.section}>
       <div className={styles.card}>
-        <h2 className={styles.headline}>For Your Custom Production Projects</h2>
+        <h2 className={styles.headline}>{t('headline')}</h2>
         <p className={styles.subtext}>
-          Custom patterns, colors, and compositions tailored to your brand.
+          {t('subtext')}
         </p>
         <Button variant="primary" onClick={() => setOpen(true)}>
-          Get in Touch
+          {t('button')}
         </Button>
       </div>
 
-      <Modal isOpen={open} onClose={() => setOpen(false)} title="Contact Us">
+      <Modal isOpen={open} onClose={() => setOpen(false)} title={t('modalTitle')}>
         <div className={styles.channels}>
           <a
             href={`https://t.me/${contacts.telegram.replace("@", "")}`}
@@ -74,7 +76,7 @@ export function ContactCta() {
           <div className={styles.divider} />
 
           <div className={styles.phonesSection}>
-            <div className={styles.phonesLabel}>Phone Numbers</div>
+            <div className={styles.phonesLabel}>{t('phoneNumbers')}</div>
             {contacts.phones.map((phone) => (
               <a
                 key={phone}

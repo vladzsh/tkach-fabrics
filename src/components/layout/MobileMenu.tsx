@@ -1,26 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
+import {useTranslations} from 'next-intl';
+import {Link} from '@/i18n/navigation';
 import { X } from "lucide-react";
 import styles from "./MobileMenu.module.css";
-
-const catalogLinks = [
-  { label: "All Fabrics", href: "/catalog" },
-  { label: "Cotton", href: "/catalog/cotton" },
-  { label: "Linen", href: "/catalog/linen" },
-  { label: "Silk", href: "/catalog/silk" },
-  { label: "Polyester", href: "/catalog/polyester" },
-  { label: "Wool", href: "/catalog/wool" },
-  { label: "Blends", href: "/catalog/blends" },
-  { label: "New Arrivals", href: "/catalog/new-arrivals" },
-];
-
-const pageLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Contacts", href: "/contact" },
-  { label: "Shipping", href: "#" },
-];
 
 type MobileMenuProps = {
   open: boolean;
@@ -28,6 +12,26 @@ type MobileMenuProps = {
 };
 
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
+  const tMenu = useTranslations('Menu');
+  const tCat = useTranslations('Categories');
+
+  const catalogLinks = [
+    { label: tCat("allFabrics"), href: "/catalog" as const },
+    { label: tCat("cotton"), href: "/catalog/cotton" as const },
+    { label: tCat("linen"), href: "/catalog/linen" as const },
+    { label: tCat("silk"), href: "/catalog/silk" as const },
+    { label: tCat("polyester"), href: "/catalog/polyester" as const },
+    { label: tCat("wool"), href: "/catalog/wool" as const },
+    { label: tCat("blends"), href: "/catalog/blends" as const },
+    { label: tCat("newArrivals"), href: "/catalog/new-arrivals" as const },
+  ];
+
+  const pageLinks = [
+    { label: tMenu("aboutUs"), href: "/about" as const },
+    { label: tMenu("contacts"), href: "/contact" as const },
+    { label: tMenu("shipping"), href: "#" as const },
+  ];
+
   // Prevent body scroll when open
   useEffect(() => {
     if (open) {
@@ -59,18 +63,18 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.header}>
-          <span className={styles.title}>Menu</span>
+          <span className={styles.title}>{tMenu('title')}</span>
           <button
             className={styles.closeBtn}
             onClick={onClose}
-            aria-label="Close menu"
+            aria-label={tMenu('closeMenu')}
           >
             <X size={22} />
           </button>
         </div>
 
         <nav className={styles.nav}>
-          <div className={styles.sectionLabel}>Pages</div>
+          <div className={styles.sectionLabel}>{tMenu('pages')}</div>
           {pageLinks.map((link) => (
             <Link
               key={link.href}
@@ -86,7 +90,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
         <hr className={styles.divider} />
 
         <nav className={styles.nav}>
-          <div className={styles.sectionLabel}>Catalog</div>
+          <div className={styles.sectionLabel}>{tMenu('catalog')}</div>
           {catalogLinks.map((link) => (
             <Link
               key={link.href}
@@ -102,7 +106,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
         <hr className={styles.divider} />
 
         <button className={styles.signIn} disabled>
-          Sign In
+          {tMenu('signIn')}
         </button>
       </div>
     </div>

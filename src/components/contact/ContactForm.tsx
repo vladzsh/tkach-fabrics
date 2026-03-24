@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import {useTranslations} from 'next-intl';
 import { CheckCircle } from 'lucide-react';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
@@ -13,18 +14,19 @@ export default function ContactForm() {
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const t = useTranslations('ContactForm');
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const newErrors: { name?: string; email?: string } = {};
 
     if (!name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = t('nameRequired');
     }
     if (!email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t('emailRequired');
     } else if (!email.includes('@')) {
-      newErrors.email = 'Enter a valid email address';
+      newErrors.email = t('emailInvalid');
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -49,10 +51,10 @@ export default function ContactForm() {
     return (
       <div className={styles.success}>
         <CheckCircle size={48} color="var(--color-accent)" />
-        <p className={styles.successTitle}>Message sent!</p>
-        <p className={styles.successSub}>We&apos;ll get back to you soon.</p>
+        <p className={styles.successTitle}>{t('successTitle')}</p>
+        <p className={styles.successSub}>{t('successSubtitle')}</p>
         <Button variant="outline" onClick={handleReset}>
-          Send Another
+          {t('sendAnother')}
         </Button>
       </div>
     );
@@ -61,41 +63,41 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className={styles.form} noValidate>
       <Input
-        label="Name"
+        label={t('name')}
         name="name"
-        placeholder="Your name"
+        placeholder={t('namePlaceholder')}
         required
         value={name}
         onChange={(e) => setName(e.target.value)}
         error={errors.name}
       />
       <Input
-        label="Email"
+        label={t('email')}
         name="email"
         type="email"
-        placeholder="your@email.com"
+        placeholder={t('emailPlaceholder')}
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         error={errors.email}
       />
       <Input
-        label="Phone"
+        label={t('phone')}
         name="phone"
         type="tel"
-        placeholder="+1 (555) 000-0000"
+        placeholder={t('phonePlaceholder')}
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
       />
       <Input
-        label="Message"
+        label={t('message')}
         name="message"
-        placeholder="Your message..."
+        placeholder={t('messagePlaceholder')}
         textarea
         value={message}
         onChange={(e) => setMessage((e as unknown as React.ChangeEvent<HTMLTextAreaElement>).target.value)}
       />
-      <Button type="submit">Send Message</Button>
+      <Button type="submit">{t('send')}</Button>
     </form>
   );
 }

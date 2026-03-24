@@ -1,19 +1,10 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
-
-export const metadata: Metadata = {
-  title: "Tkach Fabrics — Wholesale Fabrics by the Roll",
-  description:
-    "Premium wholesale fabrics for garment manufacturers and ateliers. Cotton, linen, silk, polyester, wool, and blends.",
-};
 
 export default function RootLayout({
   children,
@@ -22,11 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import {setRequestLocale, getTranslations} from 'next-intl/server';
 import {
   getProductsByCategory,
   getNewArrivals,
@@ -19,45 +20,49 @@ const VALID_CATEGORIES = [
   "blends",
 ] as const;
 
-function getCategoryName(slug: string): string {
-  const map: Record<string, string> = {
-    cotton: "Cotton",
-    linen: "Linen",
-    silk: "Silk",
-    polyester: "Polyester",
-    wool: "Wool",
-    blends: "Blends",
-    "new-arrivals": "New Arrivals",
-  };
-  return map[slug] ?? slug;
-}
+const CATEGORY_KEYS: Record<string, string> = {
+  cotton: "cotton",
+  linen: "linen",
+  silk: "silk",
+  polyester: "polyester",
+  wool: "wool",
+  blends: "blends",
+  "new-arrivals": "newArrivals",
+};
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ category: string }>;
+  params: Promise<{ category: string; locale: string }>;
 }): Promise<Metadata> {
-  const { category } = await params;
-  const name = getCategoryName(category);
+  const { category, locale } = await params;
+  const t = await getTranslations({locale, namespace: 'Categories'});
+  const key = CATEGORY_KEYS[category];
+  const name = key ? t(key) : category;
   return { title: `${name} — Tkach Fabrics` };
 }
 
 export default async function CategoryCatalogPage({
   params,
 }: {
-  params: Promise<{ category: string }>;
+  params: Promise<{ category: string; locale: string }>;
 }) {
-  const { category } = await params;
+  const { category, locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({locale, namespace: 'Categories'});
+  const tCatalog = await getTranslations({locale, namespace: 'Catalog'});
 
   let products;
   let categoryName: string;
 
+  const key = CATEGORY_KEYS[category];
+
   if (category === "new-arrivals") {
     products = getNewArrivals();
-    categoryName = "New Arrivals";
+    categoryName = t('newArrivals');
   } else if ((VALID_CATEGORIES as readonly string[]).includes(category)) {
     products = getProductsByCategory(category);
-    categoryName = getCategoryName(category);
+    categoryName = key ? t(key) : category;
   } else {
     notFound();
   }
@@ -66,7 +71,7 @@ export default async function CategoryCatalogPage({
     <main style={{ padding: "0 32px 40px", background: "var(--color-bg)" }}>
       <Breadcrumbs
         items={[
-          { label: "All Fabrics", href: "/catalog" },
+          { label: t('allFabrics'), href: "/catalog" },
           { label: categoryName },
         ]}
       />
@@ -83,7 +88,7 @@ export default async function CategoryCatalogPage({
           marginBottom: 16,
         }}
       >
-        {products.length} products
+        {tCatalog('products', {count: products.length})}
       </p>
       <CatalogClient
         initialProducts={products}

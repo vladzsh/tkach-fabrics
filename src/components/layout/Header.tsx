@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import {useTranslations} from 'next-intl';
+import {Link} from '@/i18n/navigation';
 import { Heart, User, Menu, Search } from "lucide-react";
 import SearchBar from "./SearchBar";
 import CatalogFlyout from "./CatalogFlyout";
@@ -11,6 +12,7 @@ import styles from "./Header.module.css";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const t = useTranslations('Header');
 
   return (
     <header className={styles.header}>
@@ -20,7 +22,7 @@ export default function Header() {
           <button
             className={styles.iconBtn}
             onClick={() => setMobileMenuOpen(true)}
-            aria-label="Open menu"
+            aria-label={t('openMenu')}
           >
             <Menu size={22} />
           </button>
@@ -38,22 +40,22 @@ export default function Header() {
         {/* Right actions (always visible) */}
         <div className={styles.rightGroup}>
           <div className={styles.desktopOnly}>
-            <button className={styles.iconBtn} aria-label="Wishlist">
+            <button className={styles.iconBtn} aria-label={t('wishlist')}>
               <Heart size={22} />
             </button>
           </div>
           <div className={styles.desktopOnly}>
-            <button className={styles.iconBtn} aria-label="Sign in">
+            <button className={styles.iconBtn} aria-label={t('signIn')}>
               <User size={22} />
             </button>
           </div>
           <div className={styles.mobileOnly}>
-            <button className={styles.iconBtn} aria-label="Search">
+            <button className={styles.iconBtn} aria-label={t('search')}>
               <Search size={22} />
             </button>
           </div>
           <div className={styles.mobileOnly}>
-            <button className={styles.iconBtn} aria-label="Wishlist">
+            <button className={styles.iconBtn} aria-label={t('wishlist')}>
               <Heart size={22} />
             </button>
           </div>

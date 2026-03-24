@@ -1,0 +1,153 @@
+{
+  "Hero": {
+    "subtitle": "ОПТОВІ ТКАНИНИ",
+    "headline": "Преміальні тканини для вашого виробництва",
+    "subtext": "Якісні матеріали в рулонах. Бавовна, льон, шовк та інше для виробників одягу та ательє.",
+    "browseCatalog": "Переглянути каталог",
+    "requestQuote": "Запитати ціну"
+  },
+  "CategoryGrid": {
+    "title": "Категорії матеріалів"
+  },
+  "ContactCta": {
+    "headline": "Для ваших виробничих проєктів",
+    "subtext": "Індивідуальні візерунки, кольори та склад під ваш бренд.",
+    "button": "Зв'язатися",
+    "modalTitle": "Зв'язатися з нами",
+    "phoneNumbers": "Номери телефонів"
+  },
+  "Categories": {
+    "cotton": "Бавовна",
+    "linen": "Льон",
+    "silk": "Шовк",
+    "polyester": "Поліестер",
+    "wool": "Вовна",
+    "blends": "Суміші",
+    "newArrivals": "Новинки",
+    "allFabrics": "Усі тканини"
+  },
+  "Header": {
+    "openMenu": "Відкрити меню",
+    "wishlist": "Список бажань",
+    "signIn": "Увійти",
+    "search": "Пошук"
+  },
+  "Footer": {
+    "tagline": "Оптові тканини в рулонах для виробників одягу та ательє.",
+    "company": "Компанія",
+    "help": "Допомога",
+    "contact": "Контакти",
+    "aboutUs": "Про нас",
+    "contactLink": "Контакти",
+    "privacyPolicy": "Політика конфіденційності",
+    "termsOfService": "Умови надання послуг",
+    "howToOrder": "Як замовити",
+    "shippingDelivery": "Доставка",
+    "returns": "Повернення",
+    "faq": "Часті питання",
+    "copyright": "© 2026 Tkach Fabrics. Усі права захищені."
+  },
+  "Menu": {
+    "title": "Меню",
+    "closeMenu": "Закрити меню",
+    "pages": "Сторінки",
+    "catalog": "Каталог",
+    "aboutUs": "Про нас",
+    "contacts": "Контакти",
+    "shipping": "Доставка",
+    "signIn": "Увійти"
+  },
+  "ProductInfo": {
+    "composition": "Склад",
+    "availableColors": "Доступні кольори",
+    "minOrder": "Мін. замовлення",
+    "perRoll": "/ рулон",
+    "requestQuote": "Запитати ціну",
+    "infoNote": "Надішліть запит на ціну, і ми відповімо протягом 24 годин з інформацією про ціни, наявність та доставку.",
+    "roll": "рулон",
+    "rolls": "рулонів"
+  },
+  "QuoteModal": {
+    "title": "Запит ціни",
+    "product": "Товар",
+    "name": "Ім'я",
+    "namePlaceholder": "Ваше повне ім'я",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "phone": "Телефон",
+    "phonePlaceholder": "+380 (XX) XXX-XXXX",
+    "quantity": "Необхідна кількість",
+    "quantityPlaceholder": "напр. 10 рулонів",
+    "message": "Повідомлення",
+    "messagePlaceholder": "Додаткові деталі або питання...",
+    "submit": "Надіслати запит",
+    "successTitle": "Ваш запит на ціну надіслано!",
+    "successSubtitle": "Ми відповімо протягом 24 годин.",
+    "close": "Закрити",
+    "nameRequired": "Ім'я обов'язкове",
+    "emailRequired": "Email обов'язковий",
+    "emailInvalid": "Введіть дійсну адресу електронної пошти"
+  },
+  "ContactForm": {
+    "name": "Ім'я",
+    "namePlaceholder": "Ваше ім'я",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "phone": "Телефон",
+    "phonePlaceholder": "+380 (XX) XXX-XXXX",
+    "message": "Повідомлення",
+    "messagePlaceholder": "Ваше повідомлення...",
+    "send": "Надіслати повідомлення",
+    "successTitle": "Повідомлення надіслано!",
+    "successSubtitle": "Ми відповімо найближчим часом.",
+    "sendAnother": "Надіслати ще",
+    "nameRequired": "Ім'я обов'язкове",
+    "emailRequired": "Email обов'язковий",
+    "emailInvalid": "Введіть дійсну адресу електронної пошти"
+  },
+  "ContactInfo": {
+    "email": "Email",
+    "phone": "Телефон",
+    "address": "Адреса",
+    "messengers": "Месенджери"
+  },
+  "About": {
+    "title": "Про Tkach Fabrics",
+    "story": "Tkach Fabrics понад десять років постачає преміальні оптові тканини виробникам одягу та ательє. Ми закуповуємо найкращі матеріали від перевірених фабрик по всьому світу, гарантуючи відповідність кожного рулону нашим стандартам якості.",
+    "qualityTitle": "Якісні тканини",
+    "qualityDesc": "Ретельно відібрані матеріали від перевірених фабрик з усього світу.",
+    "responseTitle": "Швидка відповідь",
+    "responseDesc": "Відповіді на запити протягом 24 годин, завжди.",
+    "shippingTitle": "Оптова доставка",
+    "shippingDesc": "Надійна доставка гуртових замовлень по всій країні."
+  },
+  "Contact": {
+    "title": "Зв'язатися з нами"
+  },
+  "Catalog": {
+    "products": "{count} товарів",
+    "noProducts": "Жоден товар не відповідає вашим фільтрам.",
+    "sortNewest": "Спочатку нові",
+    "sortPriceAsc": "Ціна: від низької до високої",
+    "sortPriceDesc": "Ціна: від високої до низької",
+    "sortName": "Назва: А → Я",
+    "filterColor": "КОЛІР",
+    "filterComposition": "СКЛАД",
+    "filterPrice": "ЦІНА ЗА РУЛОН",
+    "filterMinOrder": "МІН. ЗАМОВЛЕННЯ",
+    "filters": "Фільтри",
+    "applyFilters": "Застосувати фільтри",
+    "minRoll": "Мін: {count} рулон",
+    "minRolls": "Мін: {count} рулонів"
+  },
+  "Search": {
+    "placeholder": "Пошук за тканиною, складом, кольором..."
+  },
+  "Metadata": {
+    "homeTitle": "Tkach Fabrics — Оптові тканини в рулонах",
+    "homeDescription": "Преміальні оптові тканини для виробників одягу та ательє.",
+    "catalogTitle": "Усі тканини — Tkach Fabrics",
+    "aboutTitle": "Про нас — Tkach Fabrics",
+    "contactTitle": "Контакти — Tkach Fabrics"
+  }
+}

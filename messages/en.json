@@ -1,0 +1,153 @@
+{
+  "Hero": {
+    "subtitle": "WHOLESALE FABRICS",
+    "headline": "Premium Fabrics for Your Production",
+    "subtext": "Quality materials by the roll. Cotton, linen, silk, and more for garment manufacturers and ateliers.",
+    "browseCatalog": "Browse Catalog",
+    "requestQuote": "Request Quote"
+  },
+  "CategoryGrid": {
+    "title": "Shop by Material"
+  },
+  "ContactCta": {
+    "headline": "For Your Custom Production Projects",
+    "subtext": "Custom patterns, colors, and compositions tailored to your brand.",
+    "button": "Get in Touch",
+    "modalTitle": "Contact Us",
+    "phoneNumbers": "Phone Numbers"
+  },
+  "Categories": {
+    "cotton": "Cotton",
+    "linen": "Linen",
+    "silk": "Silk",
+    "polyester": "Polyester",
+    "wool": "Wool",
+    "blends": "Blends",
+    "newArrivals": "New Arrivals",
+    "allFabrics": "All Fabrics"
+  },
+  "Header": {
+    "openMenu": "Open menu",
+    "wishlist": "Wishlist",
+    "signIn": "Sign in",
+    "search": "Search"
+  },
+  "Footer": {
+    "tagline": "Wholesale fabrics by the roll for garment manufacturers and ateliers.",
+    "company": "Company",
+    "help": "Help",
+    "contact": "Contact",
+    "aboutUs": "About Us",
+    "contactLink": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "howToOrder": "How to Order",
+    "shippingDelivery": "Shipping & Delivery",
+    "returns": "Returns",
+    "faq": "FAQ",
+    "copyright": "\u00a9 2026 Tkach Fabrics. All rights reserved."
+  },
+  "Menu": {
+    "title": "Menu",
+    "closeMenu": "Close menu",
+    "pages": "Pages",
+    "catalog": "Catalog",
+    "aboutUs": "About Us",
+    "contacts": "Contacts",
+    "shipping": "Shipping",
+    "signIn": "Sign In"
+  },
+  "ProductInfo": {
+    "composition": "Composition",
+    "availableColors": "Available colors",
+    "minOrder": "Min order",
+    "perRoll": "/ roll",
+    "requestQuote": "Request Quote",
+    "infoNote": "Submit a quote request and we'll get back to you within 24 hours with pricing, availability, and shipping details.",
+    "roll": "roll",
+    "rolls": "rolls"
+  },
+  "QuoteModal": {
+    "title": "Request Quote",
+    "product": "Product",
+    "name": "Name",
+    "namePlaceholder": "Your full name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "phone": "Phone",
+    "phonePlaceholder": "+1 (555) 000-0000",
+    "quantity": "Quantity needed",
+    "quantityPlaceholder": "e.g. 10 rolls",
+    "message": "Message",
+    "messagePlaceholder": "Any additional details or questions...",
+    "submit": "Submit Request",
+    "successTitle": "Your quote request has been submitted!",
+    "successSubtitle": "We'll get back to you within 24 hours.",
+    "close": "Close",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address"
+  },
+  "ContactForm": {
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "phone": "Phone",
+    "phonePlaceholder": "+1 (555) 000-0000",
+    "message": "Message",
+    "messagePlaceholder": "Your message...",
+    "send": "Send Message",
+    "successTitle": "Message sent!",
+    "successSubtitle": "We'll get back to you soon.",
+    "sendAnother": "Send Another",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Enter a valid email address"
+  },
+  "ContactInfo": {
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "messengers": "Messengers"
+  },
+  "About": {
+    "title": "About Tkach Fabrics",
+    "story": "Tkach Fabrics has been providing premium wholesale fabrics to garment manufacturers and ateliers for over a decade. We source the finest materials from trusted mills around the world, ensuring every roll meets our quality standards.",
+    "qualityTitle": "Quality Fabrics",
+    "qualityDesc": "Carefully sourced materials from trusted mills worldwide.",
+    "responseTitle": "Fast Response",
+    "responseDesc": "Quote replies within 24 hours, every time.",
+    "shippingTitle": "Wholesale Shipping",
+    "shippingDesc": "Reliable delivery for bulk orders nationwide."
+  },
+  "Contact": {
+    "title": "Get in Touch"
+  },
+  "Catalog": {
+    "products": "{count} products",
+    "noProducts": "No products match your filters.",
+    "sortNewest": "Newest first",
+    "sortPriceAsc": "Price: Low \u2192 High",
+    "sortPriceDesc": "Price: High \u2192 Low",
+    "sortName": "Name: A \u2192 Z",
+    "filterColor": "COLOR",
+    "filterComposition": "COMPOSITION",
+    "filterPrice": "PRICE PER ROLL",
+    "filterMinOrder": "MIN ORDER",
+    "filters": "Filters",
+    "applyFilters": "Apply Filters",
+    "minRoll": "Min: {count} roll",
+    "minRolls": "Min: {count} rolls"
+  },
+  "Search": {
+    "placeholder": "Search by fabric, composition, color..."
+  },
+  "Metadata": {
+    "homeTitle": "Tkach Fabrics \u2014 Wholesale Fabrics by the Roll",
+    "homeDescription": "Premium wholesale fabrics for garment manufacturers and ateliers.",
+    "catalogTitle": "All Fabrics \u2014 Tkach Fabrics",
+    "aboutTitle": "About \u2014 Tkach Fabrics",
+    "contactTitle": "Contact \u2014 Tkach Fabrics"
+  }
+}

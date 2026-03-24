@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import {useTranslations} from 'next-intl';
 import { CheckCircle } from "lucide-react";
 import Modal from "@/components/ui/Modal";
 import Input from "@/components/ui/Input";
@@ -38,6 +39,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   const [values, setValues] = useState<FormValues>(emptyForm);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const t = useTranslations('QuoteModal');
 
   function handleClose() {
     setValues(emptyForm);
@@ -56,12 +58,12 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   function validate(): boolean {
     const newErrors: FormErrors = {};
     if (!values.name.trim()) {
-      newErrors.name = "Name is required";
+      newErrors.name = t('nameRequired');
     }
     if (!values.email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email = t('emailRequired');
     } else if (!values.email.includes("@")) {
-      newErrors.email = "Please enter a valid email address";
+      newErrors.email = t('emailInvalid');
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -75,20 +77,20 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={handleClose} title="Request Quote">
+    <Modal isOpen={isOpen} onClose={handleClose} title={t('title')}>
       {submitted ? (
         <div className={styles.success}>
           <CheckCircle size={48} className={styles.successIcon} />
-          <p className={styles.successTitle}>Your quote request has been submitted!</p>
-          <p className={styles.successSubtitle}>We&apos;ll get back to you within 24 hours.</p>
+          <p className={styles.successTitle}>{t('successTitle')}</p>
+          <p className={styles.successSubtitle}>{t('successSubtitle')}</p>
           <Button variant="primary" onClick={handleClose} className={styles.closeBtn}>
-            Close
+            {t('close')}
           </Button>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className={styles.form} noValidate>
           <Input
-            label="Product"
+            label={t('product')}
             name="product"
             value={productName}
             disabled
@@ -96,49 +98,49 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
             className={styles.readOnly}
           />
           <Input
-            label="Name"
+            label={t('name')}
             name="name"
-            placeholder="Your full name"
+            placeholder={t('namePlaceholder')}
             required
             value={values.name}
             error={errors.name}
             onChange={(e) => handleChange("name", e.target.value)}
           />
           <Input
-            label="Email"
+            label={t('email')}
             name="email"
             type="email"
-            placeholder="your@email.com"
+            placeholder={t('emailPlaceholder')}
             required
             value={values.email}
             error={errors.email}
             onChange={(e) => handleChange("email", e.target.value)}
           />
           <Input
-            label="Phone"
+            label={t('phone')}
             name="phone"
             type="tel"
-            placeholder="+1 (555) 000-0000"
+            placeholder={t('phonePlaceholder')}
             value={values.phone}
             onChange={(e) => handleChange("phone", e.target.value)}
           />
           <Input
-            label="Quantity needed"
+            label={t('quantity')}
             name="quantity"
-            placeholder="e.g. 10 rolls"
+            placeholder={t('quantityPlaceholder')}
             value={values.quantity}
             onChange={(e) => handleChange("quantity", e.target.value)}
           />
           <Input
-            label="Message"
+            label={t('message')}
             name="message"
-            placeholder="Any additional details or questions..."
+            placeholder={t('messagePlaceholder')}
             textarea
             value={values.message}
             onChange={(e) => handleChange("message", (e as unknown as React.ChangeEvent<HTMLTextAreaElement>).target.value)}
           />
           <Button type="submit" variant="primary" className={styles.submitBtn}>
-            Submit Request
+            {t('submit')}
           </Button>
         </form>
       )}

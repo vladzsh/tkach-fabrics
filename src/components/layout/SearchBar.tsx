@@ -1,9 +1,12 @@
 "use client";
 
+import {useTranslations} from 'next-intl';
 import { Search } from "lucide-react";
 import styles from "./SearchBar.module.css";
 
 export default function SearchBar() {
+  const t = useTranslations('Search');
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     // UI only — no action on submit
@@ -17,8 +20,8 @@ export default function SearchBar() {
       <input
         className={styles.input}
         type="search"
-        placeholder="Search by fabric, composition, color..."
-        aria-label="Search fabrics"
+        placeholder={t('placeholder')}
+        aria-label={t('placeholder')}
       />
     </form>
   );

@@ -1,24 +1,27 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import {useTranslations} from 'next-intl';
+import {Link} from '@/i18n/navigation';
 import { LayoutGrid } from "lucide-react";
 import styles from "./CatalogFlyout.module.css";
-
-const categories = [
-  { label: "All Fabrics", href: "/catalog" },
-  { label: "Cotton", href: "/catalog/cotton" },
-  { label: "Linen", href: "/catalog/linen" },
-  { label: "Silk", href: "/catalog/silk" },
-  { label: "Polyester", href: "/catalog/polyester" },
-  { label: "Wool", href: "/catalog/wool" },
-  { label: "Blends", href: "/catalog/blends" },
-  { label: "New Arrivals", href: "/catalog/new-arrivals" },
-];
 
 export default function CatalogFlyout() {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const tMenu = useTranslations('Menu');
+  const tCat = useTranslations('Categories');
+
+  const categories = [
+    { label: tCat("allFabrics"), href: "/catalog" as const },
+    { label: tCat("cotton"), href: "/catalog/cotton" as const },
+    { label: tCat("linen"), href: "/catalog/linen" as const },
+    { label: tCat("silk"), href: "/catalog/silk" as const },
+    { label: tCat("polyester"), href: "/catalog/polyester" as const },
+    { label: tCat("wool"), href: "/catalog/wool" as const },
+    { label: tCat("blends"), href: "/catalog/blends" as const },
+    { label: tCat("newArrivals"), href: "/catalog/new-arrivals" as const },
+  ];
 
   useEffect(() => {
     if (!open) return;
@@ -55,7 +58,7 @@ export default function CatalogFlyout() {
         aria-haspopup="true"
       >
         <LayoutGrid size={16} />
-        <span>Catalog</span>
+        <span>{tMenu('catalog')}</span>
       </button>
 
       {open && (

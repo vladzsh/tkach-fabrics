@@ -1,24 +1,26 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import {useTranslations} from 'next-intl';
+import {Link, usePathname} from '@/i18n/navigation';
 import styles from "./CategoryNav.module.css";
-
-const links = [
-  { label: "All Fabrics", href: "/catalog" },
-  { label: "Cotton", href: "/catalog/cotton" },
-  { label: "Linen", href: "/catalog/linen" },
-  { label: "Silk", href: "/catalog/silk" },
-  { label: "Polyester", href: "/catalog/polyester" },
-  { label: "Wool", href: "/catalog/wool" },
-  { label: "Blends", href: "/catalog/blends" },
-  { label: "New Arrivals", href: "/catalog/new-arrivals" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
 
 export default function CategoryNav() {
   const pathname = usePathname();
+  const tCat = useTranslations('Categories');
+  const tMenu = useTranslations('Menu');
+
+  const links = [
+    { label: tCat("allFabrics"), href: "/catalog" as const },
+    { label: tCat("cotton"), href: "/catalog/cotton" as const },
+    { label: tCat("linen"), href: "/catalog/linen" as const },
+    { label: tCat("silk"), href: "/catalog/silk" as const },
+    { label: tCat("polyester"), href: "/catalog/polyester" as const },
+    { label: tCat("wool"), href: "/catalog/wool" as const },
+    { label: tCat("blends"), href: "/catalog/blends" as const },
+    { label: tCat("newArrivals"), href: "/catalog/new-arrivals" as const },
+    { label: tMenu("aboutUs"), href: "/about" as const },
+    { label: tMenu("contacts"), href: "/contact" as const },
+  ];
 
   function isActive(href: string) {
     if (href === "/catalog") {

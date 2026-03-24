@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import {useTranslations} from 'next-intl';
+import {Link} from '@/i18n/navigation';
 import WishlistButton from "@/components/ui/WishlistButton";
 import type { Product } from "@/data/types";
 import styles from "./ProductCard.module.css";
@@ -11,7 +12,8 @@ type ProductCardProps = {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const firstColorName = product.colors[0]?.name ?? "";
-  const imgSrc = product.images[0];
+  const imgSrc = product.images[1];
+  const t = useTranslations('Catalog');
 
   return (
     <Link href={`/product/${product.slug}`} className={styles.card}>
@@ -41,7 +43,9 @@ export default function ProductCard({ product }: ProductCardProps) {
             ${product.pricePerRoll}/roll
           </span>
           <span className={styles.minOrder}>
-            Min: {product.minOrder} roll{product.minOrder !== 1 ? "s" : ""}
+            {product.minOrder !== 1
+              ? t('minRolls', {count: product.minOrder})
+              : t('minRoll', {count: product.minOrder})}
           </span>
         </div>
       </div>

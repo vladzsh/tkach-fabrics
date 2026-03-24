@@ -2,13 +2,15 @@
 
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Check } from "lucide-react";
+import {useRouter, usePathname} from '@/i18n/navigation';
+import {useLocale} from 'next-intl';
 import styles from "./LanguageSwitcher.module.css";
 
 const LANGUAGES = [
-  { code: "EN", country: "gb", label: "English" },
-  { code: "UK", country: "ua", label: "Українська" },
-  { code: "TR", country: "tr", label: "Türkçe" },
-  { code: "RU", country: "ru", label: "Русский" },
+  { code: "en", display: "EN", country: "gb", label: "English" },
+  { code: "uk", display: "UK", country: "ua", label: "Українська" },
+  { code: "tr", display: "TR", country: "tr", label: "Türkçe" },
+  { code: "ru", display: "RU", country: "ru", label: "Русский" },
 ];
 
 function flagUrl(cc: string) {
@@ -17,10 +19,12 @@ function flagUrl(cc: string) {
 
 export default function LanguageSwitcher() {
   const [open, setOpen] = useState(false);
-  const [activeLang, setActiveLang] = useState("EN");
   const ref = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = useLocale();
 
-  const current = LANGUAGES.find((l) => l.code === activeLang)!;
+  const current = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
 
   useEffect(() => {
     if (!open) return;
@@ -42,10 +46,10 @@ export default function LanguageSwitcher() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={flagUrl(current.country)}
-          alt={current.code}
+          alt={current.display}
           className={styles.flag}
         />
-        <span className={styles.code}>{current.code}</span>
+        <span className={styles.code}>{current.display}</span>
         <ChevronDown
           size={14}
           className={`${styles.chevron} ${open ? styles.chevronOpen : ""}`}
@@ -57,20 +61,20 @@ export default function LanguageSwitcher() {
             <button
               key={lang.code}
               onClick={() => {
-                setActiveLang(lang.code);
+                router.replace(pathname, {locale: lang.code});
                 setOpen(false);
               }}
-              className={`${styles.option} ${activeLang === lang.code ? styles.optionActive : ""}`}
+              className={`${styles.option} ${locale === lang.code ? styles.optionActive : ""}`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={flagUrl(lang.country)}
-                alt={lang.code}
+                alt={lang.display}
                 className={styles.flag}
               />
-              <span className={styles.code}>{lang.code}</span>
+              <span className={styles.code}>{lang.display}</span>
               <span className={styles.label}>{lang.label}</span>
-              {activeLang === lang.code && (
+              {locale === lang.code && (
                 <Check size={14} className={styles.check} />
               )}
             </button>

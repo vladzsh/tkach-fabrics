@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import {useTranslations} from 'next-intl';
+import {Link} from '@/i18n/navigation';
 import { Mail, Phone, MapPin } from "lucide-react";
 import Accordion from "@/components/ui/Accordion";
 import styles from "./Footer.module.css";
@@ -55,126 +56,131 @@ const socialIcons = [
   { icon: <FacebookIcon />, label: "Facebook" },
 ];
 
-const companyLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
-];
-
-const helpLinks = [
-  { label: "How to Order", href: "#" },
-  { label: "Shipping & Delivery", href: "#" },
-  { label: "Returns", href: "#" },
-  { label: "FAQ", href: "#" },
-];
-
-function BrandColumn() {
-  return (
-    <div className={styles.brandColumn}>
-      <Link href="/" className={styles.logo}>
-        TKACH <span className={styles.logoAccent}>FABRICS</span>
-      </Link>
-      <p className={styles.tagline}>
-        Wholesale fabrics by the roll for garment manufacturers and ateliers.
-      </p>
-      <div className={styles.socialRow}>
-        {socialIcons.map(({ icon, label }) => (
-          <button key={label} className={styles.socialIcon} aria-label={label}>
-            {icon}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function CompanyLinks() {
-  return (
-    <>
-      {companyLinks.map(({ label, href }) => (
-        <Link key={label} href={href} className={styles.link}>
-          {label}
-        </Link>
-      ))}
-    </>
-  );
-}
-
-function HelpLinks() {
-  return (
-    <>
-      {helpLinks.map(({ label, href }) => (
-        <Link key={label} href={href} className={styles.link}>
-          {label}
-        </Link>
-      ))}
-    </>
-  );
-}
-
-function ContactItems() {
-  return (
-    <>
-      <div className={styles.contactItem}>
-        <Mail size={14} stroke="var(--color-accent)" />
-        <span className={styles.contactValue}>info@tkachfabrics.com</span>
-      </div>
-      <div className={styles.contactItem}>
-        <Phone size={14} stroke="var(--color-accent)" />
-        <span className={styles.contactValue}>+1 (555) 000-0000</span>
-      </div>
-      <div className={styles.contactItem}>
-        <MapPin size={14} stroke="var(--color-accent)" />
-        <span className={styles.contactValue}>Your address here</span>
-      </div>
-    </>
-  );
-}
-
 export default function Footer() {
+  const t = useTranslations('Footer');
+
+  const companyLinks = [
+    { label: t('aboutUs'), href: "/about" as const },
+    { label: t('contactLink'), href: "/contact" as const },
+    { label: t('privacyPolicy'), href: "#" as const },
+    { label: t('termsOfService'), href: "#" as const },
+  ];
+
+  const helpLinks = [
+    { label: t('howToOrder'), href: "#" as const },
+    { label: t('shippingDelivery'), href: "#" as const },
+    { label: t('returns'), href: "#" as const },
+    { label: t('faq'), href: "#" as const },
+  ];
+
   return (
     <footer className={styles.footer}>
       {/* Desktop layout */}
       <div className={styles.grid}>
-        <BrandColumn />
+        <div className={styles.brandColumn}>
+          <Link href="/" className={styles.logo}>
+            TKACH <span className={styles.logoAccent}>FABRICS</span>
+          </Link>
+          <p className={styles.tagline}>
+            {t('tagline')}
+          </p>
+          <div className={styles.socialRow}>
+            {socialIcons.map(({ icon, label }) => (
+              <button key={label} className={styles.socialIcon} aria-label={label}>
+                {icon}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Company column */}
         <div className={styles.column}>
-          <p className={styles.columnTitle}>COMPANY</p>
-          <CompanyLinks />
+          <p className={styles.columnTitle}>{t('company').toUpperCase()}</p>
+          {companyLinks.map(({ label, href }) => (
+            <Link key={label} href={href} className={styles.link}>
+              {label}
+            </Link>
+          ))}
         </div>
 
         {/* Help column */}
         <div className={styles.column}>
-          <p className={styles.columnTitle}>HELP</p>
-          <HelpLinks />
+          <p className={styles.columnTitle}>{t('help').toUpperCase()}</p>
+          {helpLinks.map(({ label, href }) => (
+            <Link key={label} href={href} className={styles.link}>
+              {label}
+            </Link>
+          ))}
         </div>
 
         {/* Contact column */}
         <div className={styles.column}>
-          <p className={styles.columnTitle}>CONTACT</p>
-          <ContactItems />
+          <p className={styles.columnTitle}>{t('contact').toUpperCase()}</p>
+          <div className={styles.contactItem}>
+            <Mail size={14} stroke="var(--color-accent)" />
+            <span className={styles.contactValue}>info@tkachfabrics.com</span>
+          </div>
+          <div className={styles.contactItem}>
+            <Phone size={14} stroke="var(--color-accent)" />
+            <span className={styles.contactValue}>+1 (555) 000-0000</span>
+          </div>
+          <div className={styles.contactItem}>
+            <MapPin size={14} stroke="var(--color-accent)" />
+            <span className={styles.contactValue}>Your address here</span>
+          </div>
         </div>
       </div>
 
       {/* Mobile layout */}
       <div className={styles.mobile}>
-        <BrandColumn />
+        <div className={styles.brandColumn}>
+          <Link href="/" className={styles.logo}>
+            TKACH <span className={styles.logoAccent}>FABRICS</span>
+          </Link>
+          <p className={styles.tagline}>
+            {t('tagline')}
+          </p>
+          <div className={styles.socialRow}>
+            {socialIcons.map(({ icon, label }) => (
+              <button key={label} className={styles.socialIcon} aria-label={label}>
+                {icon}
+              </button>
+            ))}
+          </div>
+        </div>
         <div className={styles.accordions}>
-          <Accordion title="COMPANY">
+          <Accordion title={t('company').toUpperCase()}>
             <div className={styles.accordionLinks}>
-              <CompanyLinks />
+              {companyLinks.map(({ label, href }) => (
+                <Link key={label} href={href} className={styles.link}>
+                  {label}
+                </Link>
+              ))}
             </div>
           </Accordion>
-          <Accordion title="HELP">
+          <Accordion title={t('help').toUpperCase()}>
             <div className={styles.accordionLinks}>
-              <HelpLinks />
+              {helpLinks.map(({ label, href }) => (
+                <Link key={label} href={href} className={styles.link}>
+                  {label}
+                </Link>
+              ))}
             </div>
           </Accordion>
-          <Accordion title="CONTACT">
+          <Accordion title={t('contact').toUpperCase()}>
             <div className={styles.accordionLinks}>
-              <ContactItems />
+              <div className={styles.contactItem}>
+                <Mail size={14} stroke="var(--color-accent)" />
+                <span className={styles.contactValue}>info@tkachfabrics.com</span>
+              </div>
+              <div className={styles.contactItem}>
+                <Phone size={14} stroke="var(--color-accent)" />
+                <span className={styles.contactValue}>+1 (555) 000-0000</span>
+              </div>
+              <div className={styles.contactItem}>
+                <MapPin size={14} stroke="var(--color-accent)" />
+                <span className={styles.contactValue}>Your address here</span>
+              </div>
             </div>
           </Accordion>
         </div>
@@ -182,10 +188,10 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className={styles.bottomBar}>
-        <p className={styles.copyright}>© 2026 Tkach Fabrics. All rights reserved.</p>
+        <p className={styles.copyright}>{t('copyright')}</p>
         <div className={styles.bottomLinks}>
-          <Link href="#">Privacy Policy</Link>
-          <Link href="#">Terms of Service</Link>
+          <Link href="#">{t('privacyPolicy')}</Link>
+          <Link href="#">{t('termsOfService')}</Link>
         </div>
       </div>
     </footer>

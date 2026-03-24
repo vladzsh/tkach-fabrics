@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
 import { Home } from 'lucide-react';
 import styles from './Breadcrumbs.module.css';
 

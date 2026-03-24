@@ -1,24 +1,28 @@
+"use client";
+
+import {useTranslations} from 'next-intl';
 import Button from "@/components/ui/Button";
 import styles from "./Hero.module.css";
 
 export function Hero() {
+  const t = useTranslations('Hero');
+
   return (
     <section className={styles.hero}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/images/hero.jpg" alt="" className={styles.heroBg} />
       <div className={styles.content}>
-        <p className={styles.subtitle}>WHOLESALE FABRICS</p>
-        <h1 className={styles.headline}>Premium Fabrics for Your Production</h1>
+        <p className={styles.subtitle}>{t('subtitle')}</p>
+        <h1 className={styles.headline}>{t('headline')}</h1>
         <p className={styles.subtext}>
-          Quality materials by the roll. Cotton, linen, silk, and more for
-          garment manufacturers and ateliers.
+          {t('subtext')}
         </p>
         <div className={styles.ctas}>
           <Button variant="primary" href="/catalog">
-            Browse Catalog
+            {t('browseCatalog')}
           </Button>
           <Button variant="outline" href="/contact" className={styles.outlineWhite}>
-            Request Quote
+            {t('requestQuote')}
           </Button>
         </div>
       </div>

@@ -1,17 +1,34 @@
 import type { Metadata } from 'next';
 import { CheckCircle, Clock, Truck } from 'lucide-react';
+import {setRequestLocale, getTranslations} from 'next-intl/server';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import styles from './page.module.css';
 
-export const metadata: Metadata = {
-  title: 'About — Tkach Fabrics',
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{locale: string}>;
+}): Promise<Metadata> {
+  const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'Metadata'});
+  return {
+    title: t('aboutTitle'),
+  };
+}
 
-export default function AboutPage() {
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{locale: string}>;
+}) {
+  const {locale} = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({locale, namespace: 'About'});
+
   return (
     <main className={styles.page}>
       <div className={styles.content}>
-        <Breadcrumbs items={[{ label: 'About' }]} />
+        <Breadcrumbs items={[{ label: t('title') }]} />
 
         <h1
           style={{
@@ -21,7 +38,7 @@ export default function AboutPage() {
             marginBottom: '24px',
           }}
         >
-          About Tkach Fabrics
+          {t('title')}
         </h1>
 
         <div className={styles.heroImage}>
@@ -35,9 +52,7 @@ export default function AboutPage() {
             lineHeight: 1.7,
           }}
         >
-          Tkach Fabrics has been providing premium wholesale fabrics to garment manufacturers and
-          ateliers for over a decade. We source the finest materials from trusted mills around the
-          world, ensuring every roll meets our quality standards.
+          {t('story')}
         </p>
 
         <div className={styles.values}>
@@ -45,24 +60,24 @@ export default function AboutPage() {
             <div className={styles.iconCircle}>
               <CheckCircle size={20} color="white" />
             </div>
-            <div className={styles.cardTitle}>Quality Fabrics</div>
-            <div className={styles.cardDesc}>Carefully sourced materials from trusted mills worldwide.</div>
+            <div className={styles.cardTitle}>{t('qualityTitle')}</div>
+            <div className={styles.cardDesc}>{t('qualityDesc')}</div>
           </div>
 
           <div className={styles.valueCard}>
             <div className={styles.iconCircle}>
               <Clock size={20} color="white" />
             </div>
-            <div className={styles.cardTitle}>Fast Response</div>
-            <div className={styles.cardDesc}>Quote replies within 24 hours, every time.</div>
+            <div className={styles.cardTitle}>{t('responseTitle')}</div>
+            <div className={styles.cardDesc}>{t('responseDesc')}</div>
           </div>
 
           <div className={styles.valueCard}>
             <div className={styles.iconCircle}>
               <Truck size={20} color="white" />
             </div>
-            <div className={styles.cardTitle}>Wholesale Shipping</div>
-            <div className={styles.cardDesc}>Reliable delivery for bulk orders nationwide.</div>
+            <div className={styles.cardTitle}>{t('shippingTitle')}</div>
+            <div className={styles.cardDesc}>{t('shippingDesc')}</div>
           </div>
         </div>
       </div>

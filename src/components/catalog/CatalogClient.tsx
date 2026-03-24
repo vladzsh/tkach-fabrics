@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useState, useCallback, useMemo, Suspense } from "react";
+import {useTranslations} from 'next-intl';
 import type { Product, ProductFilters, SortOption } from "@/data/types";
 import SortBar from "@/components/catalog/SortBar";
 import FilterSidebar from "@/components/catalog/FilterSidebar";
@@ -129,6 +130,7 @@ function CatalogClientInner({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const t = useTranslations('Catalog');
 
   const [filters, setFilters] = useState<ProductFilters>(() =>
     parseFiltersFromParams(searchParams)
@@ -214,7 +216,7 @@ function CatalogClientInner({
         </div>
 
         {filteredProducts.length === 0 ? (
-          <p className={styles.empty}>No products match your filters.</p>
+          <p className={styles.empty}>{t('noProducts')}</p>
         ) : (
           <>
             <div

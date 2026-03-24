@@ -1,5 +1,6 @@
 "use client";
 
+import {useTranslations} from 'next-intl';
 import { Check, SlidersHorizontal } from "lucide-react";
 import Accordion from "@/components/ui/Accordion";
 import RangeSlider from "@/components/ui/RangeSlider";
@@ -19,12 +20,6 @@ interface FilterBottomSheetProps {
   onOpen: () => void;
 }
 
-const MIN_ORDER_OPTIONS = [
-  { label: "1 roll", value: 1 },
-  { label: "5+ rolls", value: 5 },
-  { label: "10+ rolls", value: 10 },
-];
-
 export default function FilterBottomSheet({
   filters,
   onChange,
@@ -35,6 +30,14 @@ export default function FilterBottomSheet({
   onClose,
   onOpen,
 }: FilterBottomSheetProps) {
+  const t = useTranslations('Catalog');
+
+  const MIN_ORDER_OPTIONS = [
+    { label: "1 roll", value: 1 },
+    { label: "5+ rolls", value: 5 },
+    { label: "10+ rolls", value: 10 },
+  ];
+
   function toggleColor(colorName: string) {
     const current = filters.colors ?? [];
     const next = current.includes(colorName)
@@ -65,13 +68,13 @@ export default function FilterBottomSheet({
 
   return (
     <>
-      <button className={styles.filterButton} onClick={onOpen} aria-label="Open filters">
+      <button className={styles.filterButton} onClick={onOpen} aria-label={t('filters')}>
         <SlidersHorizontal size={16} />
-        <span>Filters</span>
+        <span>{t('filters')}</span>
       </button>
 
-      <BottomSheet isOpen={isOpen} onClose={onClose} title="Filters">
-        <Accordion title="COLOR" defaultOpen>
+      <BottomSheet isOpen={isOpen} onClose={onClose} title={t('filters')}>
+        <Accordion title={t('filterColor')} defaultOpen>
           <div className={styles.swatches}>
             {allColors.map((color) => {
               const isSelected = (filters.colors ?? []).includes(color.name);
@@ -89,7 +92,7 @@ export default function FilterBottomSheet({
           </div>
         </Accordion>
 
-        <Accordion title="COMPOSITION" defaultOpen>
+        <Accordion title={t('filterComposition')} defaultOpen>
           <div>
             {allCompositions.map((comp) => {
               const isChecked = (filters.compositions ?? []).includes(comp);
@@ -113,7 +116,7 @@ export default function FilterBottomSheet({
           </div>
         </Accordion>
 
-        <Accordion title="PRICE PER ROLL" defaultOpen>
+        <Accordion title={t('filterPrice')} defaultOpen>
           <RangeSlider
             min={priceRange.min}
             max={priceRange.max}
@@ -123,7 +126,7 @@ export default function FilterBottomSheet({
           />
         </Accordion>
 
-        <Accordion title="MIN ORDER" defaultOpen>
+        <Accordion title={t('filterMinOrder')} defaultOpen>
           <div>
             {MIN_ORDER_OPTIONS.map((opt) => {
               const isChecked = (filters.minOrders ?? []).includes(opt.value);
@@ -149,7 +152,7 @@ export default function FilterBottomSheet({
 
         <div className={styles.applyButton}>
           <Button variant="primary" onClick={onClose} style={{ width: "100%", justifyContent: "center" }}>
-            Apply Filters
+            {t('applyFilters')}
           </Button>
         </div>
       </BottomSheet>

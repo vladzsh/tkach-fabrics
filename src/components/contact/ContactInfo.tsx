@@ -1,3 +1,6 @@
+"use client";
+
+import {useTranslations} from 'next-intl';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import styles from './ContactInfo.module.css';
 
@@ -20,6 +23,8 @@ function FacebookIcon() {
 }
 
 export default function ContactInfo() {
+  const t = useTranslations('ContactInfo');
+
   return (
     <div>
       {/* Contact Details Card */}
@@ -27,7 +32,7 @@ export default function ContactInfo() {
         <div className={styles.row}>
           <Mail size={16} color="var(--color-accent)" />
           <div>
-            <div className={styles.rowLabel}>Email</div>
+            <div className={styles.rowLabel}>{t('email')}</div>
             <a href="mailto:info@tkachfabrics.com" className={styles.emailLink}>
               info@tkachfabrics.com
             </a>
@@ -36,14 +41,14 @@ export default function ContactInfo() {
         <div className={styles.row}>
           <Phone size={16} color="var(--color-accent)" />
           <div>
-            <div className={styles.rowLabel}>Phone</div>
+            <div className={styles.rowLabel}>{t('phone')}</div>
             <div className={styles.rowValue}>+1 (555) 000-0000</div>
           </div>
         </div>
         <div className={styles.row}>
           <MapPin size={16} color="var(--color-accent)" />
           <div>
-            <div className={styles.rowLabel}>Address</div>
+            <div className={styles.rowLabel}>{t('address')}</div>
             <div className={styles.rowValue}>Your warehouse / office address</div>
           </div>
         </div>
@@ -51,7 +56,7 @@ export default function ContactInfo() {
 
       {/* Messengers Card */}
       <div className={styles.card} style={{ marginTop: '16px' }}>
-        <div className={styles.messengersTitle}>Messengers</div>
+        <div className={styles.messengersTitle}>{t('messengers')}</div>
         <div className={styles.messengerRow}>
           <span className={styles.messengerIcon} style={{ background: '#0088cc' }} />
           <span className={styles.messengerName}>Telegram</span>

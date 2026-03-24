@@ -1,5 +1,6 @@
 "use client";
 
+import {useTranslations} from 'next-intl';
 import { Check } from "lucide-react";
 import Accordion from "@/components/ui/Accordion";
 import RangeSlider from "@/components/ui/RangeSlider";
@@ -14,12 +15,6 @@ interface FilterSidebarProps {
   priceRange: { min: number; max: number };
 }
 
-const MIN_ORDER_OPTIONS = [
-  { label: "1 roll", value: 1 },
-  { label: "5+ rolls", value: 5 },
-  { label: "10+ rolls", value: 10 },
-];
-
 export default function FilterSidebar({
   filters,
   onChange,
@@ -27,6 +22,14 @@ export default function FilterSidebar({
   allCompositions,
   priceRange,
 }: FilterSidebarProps) {
+  const t = useTranslations('Catalog');
+
+  const MIN_ORDER_OPTIONS = [
+    { label: "1 roll", value: 1 },
+    { label: "5+ rolls", value: 5 },
+    { label: "10+ rolls", value: 10 },
+  ];
+
   function toggleColor(colorName: string) {
     const current = filters.colors ?? [];
     const next = current.includes(colorName)
@@ -57,7 +60,7 @@ export default function FilterSidebar({
 
   return (
     <aside className={styles.sidebar}>
-      <Accordion title="COLOR" defaultOpen>
+      <Accordion title={t('filterColor')} defaultOpen>
         <div className={styles.swatches}>
           {allColors.map((color) => {
             const isSelected = (filters.colors ?? []).includes(color.name);
@@ -75,7 +78,7 @@ export default function FilterSidebar({
         </div>
       </Accordion>
 
-      <Accordion title="COMPOSITION" defaultOpen>
+      <Accordion title={t('filterComposition')} defaultOpen>
         <div>
           {allCompositions.map((comp) => {
             const isChecked = (filters.compositions ?? []).includes(comp);
@@ -99,7 +102,7 @@ export default function FilterSidebar({
         </div>
       </Accordion>
 
-      <Accordion title="PRICE PER ROLL" defaultOpen>
+      <Accordion title={t('filterPrice')} defaultOpen>
         <RangeSlider
           min={priceRange.min}
           max={priceRange.max}
@@ -109,7 +112,7 @@ export default function FilterSidebar({
         />
       </Accordion>
 
-      <Accordion title="MIN ORDER" defaultOpen>
+      <Accordion title={t('filterMinOrder')} defaultOpen>
         <div>
           {MIN_ORDER_OPTIONS.map((opt) => {
             const isChecked = (filters.minOrders ?? []).includes(opt.value);

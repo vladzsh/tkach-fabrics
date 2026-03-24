@@ -1,13 +1,17 @@
-import Link from "next/link";
+"use client";
+
+import {useTranslations} from 'next-intl';
+import {Link} from '@/i18n/navigation';
 import { getCategories } from "@/data/products";
 import styles from "./CategoryGrid.module.css";
 
 export function CategoryGrid() {
+  const t = useTranslations('CategoryGrid');
   const categories = getCategories();
 
   return (
     <section className={styles.section}>
-      <h2 className={styles.title}>Shop by Material</h2>
+      <h2 className={styles.title}>{t('title')}</h2>
       <div className={styles.grid}>
         {categories.map((category) => (
           <Link

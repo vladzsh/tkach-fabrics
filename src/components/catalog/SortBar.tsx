@@ -1,15 +1,9 @@
 "use client";
 
+import {useTranslations} from 'next-intl';
 import { Grid3x3, Grid2x2 } from "lucide-react";
 import Dropdown from "@/components/ui/Dropdown";
 import styles from "./SortBar.module.css";
-
-const SORT_OPTIONS = [
-  { value: "newest", label: "Newest first" },
-  { value: "price-asc", label: "Price: Low → High" },
-  { value: "price-desc", label: "Price: High → Low" },
-  { value: "name-asc", label: "Name: A → Z" },
-];
 
 type SortBarProps = {
   gridCols: 2 | 3;
@@ -24,6 +18,15 @@ export default function SortBar({
   sortBy,
   onSortChange,
 }: SortBarProps) {
+  const t = useTranslations('Catalog');
+
+  const SORT_OPTIONS = [
+    { value: "newest", label: t('sortNewest') },
+    { value: "price-asc", label: t('sortPriceAsc') },
+    { value: "price-desc", label: t('sortPriceDesc') },
+    { value: "name-asc", label: t('sortName') },
+  ];
+
   return (
     <div className={styles.bar}>
       <div className={styles.gridToggle}>
