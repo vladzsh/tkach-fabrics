@@ -7,15 +7,11 @@ import {useLocale} from 'next-intl';
 import styles from "./LanguageSwitcher.module.css";
 
 const LANGUAGES = [
-  { code: "en", display: "EN", country: "gb", label: "English" },
-  { code: "uk", display: "UK", country: "ua", label: "Українська" },
-  { code: "tr", display: "TR", country: "tr", label: "Türkçe" },
-  { code: "ru", display: "RU", country: "ru", label: "Русский" },
+  { code: "en", label: "English" },
+  { code: "uk", label: "Українська" },
+  { code: "tr", label: "Türkçe" },
+  { code: "ru", label: "Русский" },
 ];
-
-function flagUrl(cc: string) {
-  return `https://flagcdn.com/w40/${cc.toLowerCase()}.png`;
-}
 
 export default function LanguageSwitcher() {
   const [open, setOpen] = useState(false);
@@ -43,13 +39,7 @@ export default function LanguageSwitcher() {
         onClick={() => setOpen(!open)}
         aria-label="Select language"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={flagUrl(current.country)}
-          alt={current.display}
-          className={styles.flag}
-        />
-        <span className={styles.code}>{current.display}</span>
+        <span className={styles.currentLabel}>{current.label}</span>
         <ChevronDown
           size={14}
           className={`${styles.chevron} ${open ? styles.chevronOpen : ""}`}
@@ -66,13 +56,6 @@ export default function LanguageSwitcher() {
               }}
               className={`${styles.option} ${locale === lang.code ? styles.optionActive : ""}`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={flagUrl(lang.country)}
-                alt={lang.display}
-                className={styles.flag}
-              />
-              <span className={styles.code}>{lang.display}</span>
               <span className={styles.label}>{lang.label}</span>
               {locale === lang.code && (
                 <Check size={14} className={styles.check} />
